@@ -1,127 +1,41 @@
 
-
-  <header style="margin: 10px 10px 10px 10px">
-  <!--Main Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-dark primary-color" style="
-        letter-spacing: 3px ; font-weight: bold;">
-
-          <!-- Collapse button -->
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav" aria-controls="basicExampleNav"
-              aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-
-
-          </button>
-            <!-- Collapse button -->
-
-                  <!-- Collapsible content -->
-            <div class="collapse navbar-collapse" id="basicExampleNav">
-
-                      <!-- Buttons -->
-                <br><br>
-              <ul class="navbar-nav ml-4">
-                  <li class="nav-item ">
-
-                      <a class="nav-link " href="/">Home
-                          <span class="sr-only">(current)</span>
-                      </a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="{% url 'hotel:list' %}">Hotel</a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="{% url 'hotel:random' %}">Random</a>
-                  </li>
-
-                  <li class="nav-item">
-                      <a class="nav-link" href="{% url 'review:app_review' %}">Review</a>
-                  </li>
-
-                  <li class="nav-item">
-                      <a class="nav-link" href="{% url 'users:contact' %}">Contact</a>
-                  </li>
-
-              </ul>
-                        <!-- Buttons -->
-
-
-
-            </div>
-
-             <!-- Buttons for user -->
-            <div class="navbar-nav ml-4" >
-                <div class="row">
-
-                    {% if user.is_authenticated %}
-
-                    <div class="nav-link white-text mr-2">
-                        <p>Welcome, {{ user.first_name }}!</p>
-                    </div>
-
-
-
-                    <a class="nav-link white-text mr-2" href="{% url 'users:logout' %}">Logout</a>
-
-                    <p class="nav-item" style="font-weight: bold">
-                      <a class="nav-link mr-4" href="{% url 'users:profile' %}">
-                          <span class="badge badge-pill badge-danger" >
-                              <i class="far fa-heart ml-1 " ></i>
-                              Profile</span></a>
-                    </p>
-
-                    {% else %}
-
-                    <p class="nav-item ">
-                      <a class="nav-link white-text mr-2 " href="{% url 'users:login' %}">
-                          <i class="fas fa-user white-text" aria-hidden="true"></i>Login</a>
-                    </p>
-
-                    <p class="nav-item" style="font-weight: bold">
-                      <a class="nav-link mr-4" href="{% url 'users:register' %}">
-                          <span class="badge badge-pill badge-danger" >
-                              <i class="far fa-gem ml-1 " ></i>
-                              Register</span></a>
-                    </p>
-
-
-                {% endif %}
-                </div>
-            </div>
-            <!-- Buttons for user -->
-        </nav>
-
-
-      <!--Staff Navigation Bar-->
-      {% if user.is_staff %}
-      <nav class="navbar navbar-expand-lg navbar-dark danger-color" style="
-        letter-spacing: 3px ; font-weight: bold;">
-
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicNav" aria-controls="basicNav"
-              aria-expanded="false" aria-label="Navigation">
-              <span class="navbar-toggler-icon"></span>
-              <strong>Staff nav bar</strong>
-          </button>
-                  <!-- Collapsible content -->
-            <div class="collapse navbar-collapse" id="basicNav">
-                      <!-- Links -->
-                <br><br>
-
-                <a class="nav-link white-text mr-2" href="{% url 'hotel:create' %}">
-                        <i class="fas fa-magic mr-1"></i> Create Hotel</a>
-
-
-            </div>
-      </nav>
-         {% endif %}
-      <!--Staff Navigation Bar-->
-
 <br>
+  <header style="margin: 50px 15px 15px 15px">
 
-  <ul class="nav nav-tabs font-weight-bold" id="myTab" role="tablist" >
+<!--Boanca Ionut Silviu Navigation Bar-->
 
-  <li class="nav-item">
-    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
-      aria-selected="true">Acasa</a>
+<!--      <nav class="navbar navbar-expand-lg navbar-dark" >-->
+<!--      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav" aria-controls="basicExampleNav"-->
+<!--              aria-expanded="false" aria-label="Toggle navigation">-->
+<!--              <span class="navbar-toggler-icon"></span>-->
+
+
+<!--          </button>-->
+<!--            &lt;!&ndash; Collapse button &ndash;&gt;-->
+
+<!--                  &lt;!&ndash; Collapsible content &ndash;&gt;-->
+<!--            <div class="collapse navbar-collapse" id="basicExampleNav">-->
+<nav class="navbar navbar-expand-sm font-weight-bold fixed-top navbar-light  lighten-4 mb-4">
+  <button class="navbar-toggler toggler-example lighten-4 " type="button" data-toggle="collapse" data-target="#navbarT" aria-controls="navbarT" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon">  </span> <span ></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarT">
+
+  <ul class="navbar-nav mr-auto" >
+<!--        <button class="navbar-toggler" data-toggle="collapse" data-target="#basicExampleNav" aria-controls="basicExampleNav"-->
+<!--                      aria-expanded="false" aria-label="Toggle navigation">-->
+<!--                <span class="navbar-toggler-icon"></span> </button>-->
+<!--            <div class="collapse navbar-collapse" id="basicExampleNav">-->
+
+
+<!--      <li class="nav-item dropdown">-->
+<!--    <a class="nav-link dropdown-toggle" data-toggle="collapse" href="#" role="button" data-target="#basicExampleNav" aria-controls="basicExampleNav"-->
+<!--            aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span>Menu</a>-->
+<!--          <div class="collapse navbar-collapse" id="basicExampleNav"></div></li>-->
+
+  <li class="nav-item ">
+    <a class="nav-link" href="{% url 'home' %}" id="home-tab"   role="tab" aria-controls="home"
+      aria-selected="false"><i class="fas fa-home mr-1" ></i>Acasa</a>
   </li>
 
       <li class="nav-item dropdown">
@@ -137,66 +51,95 @@
   </li>
 
   <li class="nav-item">
-    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
-      aria-selected="false">Directie</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact"
-      aria-selected="false">Evenimente</a>
-  </li>
-      <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-      aria-expanded="false">Resurse</a>
-    <div class="dropdown-menu dropdown-secondary">
-      <a class="dropdown-item" href="#">Text</a>
-      <a class="dropdown-item" href="#">Audio</a>
-      <a class="dropdown-item" href="#">Video</a>
-        <a class="dropdown-item" href="#">Interviuri</a>
-        <a class="dropdown-item" href="#">Unelte</a>
-      <div class="dropdown-divider"></div>
-      <a class="dropdown-item" href="#">Separated link</a>
-    </div>
+      <a class="nav-link" id="direction-tab"  href="#profile" role="tab" aria-controls="direction">Directie</a>
   </li>
 
-      <div class="navbar-nav ml-4" >
-                <div class="row">
+  <li class="nav-item ">
+      <a class="nav-link" id="contact-tab"  href="#contact" role="tab" aria-controls="contact">Evenimente</a>
+  </li>
 
-                    {% if user.is_authenticated %}
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+    aria-expanded="false">Resurse</a>
+        <div class="dropdown-menu dropdown-secondary">
+            <a class="dropdown-item" href="#">Text</a>
+            <a class="dropdown-item" href="#">Audio</a>
+            <a class="dropdown-item" href="#">Video</a>
+            <a class="dropdown-item" href="#">Interviuri</a>
+            <a class="dropdown-item" href="#">Unelte</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Separated link</a>
+        </div>
+    </li>
 
-                    <div class="nav-link blue-text mr-2">
-                        <p>Welcome, {{ user.first_name }}!</p>
-                    </div>
+      <li  class="nav-item">
+    <form class="form-inline" action="/action_page.php">
+
+        <input class="form-control mr-sm-2" type="text" placeholder="...">
+        <a class="nav-link" type="submit">Cauta</a>
+
+    </form>
+    </li>
+
+    {% if user.is_authenticated %}
+    <li class="nav-item  ">
+    <li class="nav-item  ">
+        <a class="nav-link" id="welcome-tab"  href="#contact" role="tab" aria-controls="welcome">
+        Welcome, {{ user.first_name }}!
+        </a>
+    </li>
+
+      <li class="nav-item  ">
+          <a class="nav-link" href="{% url 'users:logout' %}">Logout</a></li>
+
+<!--    <li class="nav-item">-->
+<!--      <a class="nav-link" href="{% url 'users:profile' %}" role="tab" id="profile-tab" aria-controls="profile"-->
+<!--      aria-selected="false">-->
+<!--              <i class="fas fa-sun fa-pulse fa-spin " ></i>-->
+<!--              Profile</a>-->
+<!--    </li>-->
+      <li class="nav-item  ">
+    <a class="nav-link" id="prof-tab"  href="{% url 'users:profile' %}" role="tab" aria-controls="prof"
+      ><i class='fas fa-user  mr-1'></i>Profile</a>
+  </li>
+
+<!-- <li class="nav-item dropdown">-->
+<!--    <div class="nav-item avatar dropdown">-->
+<!--          <a class="nav-item dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown"-->
+<!--            aria-haspopup="true" aria-expanded="false">-->
+<!--            <img src="https://mdbootstrap.com/img/Photos/Avatars/img (1).jpg" class="rounded-circle"-->
+<!--              alt="avatar image">-->
+<!--          </a>-->
+<!--          <div class="dropdown-menu dropdown-menu-lg-right dropdown-dark"-->
+<!--            aria-labelledby="navbarDropdownMenuLink-55">-->
+<!--            <a class="dropdown-item" href="#">Action</a>-->
+<!--            <a class="dropdown-item" href="#">Another action</a>-->
+<!--            <a class="dropdown-item" href="#">Something else here</a>-->
+<!--          </div>-->
+<!--    </div>-->
+<!-- </li>-->
+
+    {% else %}
+
+    <li class="nav-item">
+      <a class="nav-link " href="{% url 'users:login' %}">
+          <i class="fas fa-user" aria-hidden="true"></i>Login</a>
+    </li>
+
+    <li class="nav-item" style="font-weight: bold">
+      <a class="nav-link" href="{% url 'users:register' %}">
+          <i class="far fa-gem ml-1 " ></i>
+              Register</a>
+    </li>
+
+
+{% endif %}
 
 
 
-                    <a class="nav-link blue-text mr-2" href="{% url 'users:logout' %}">Logout</a>
-
-                    <p class="nav-item" style="font-weight: bold">
-                      <a class="nav-link mr-4" href="{% url 'users:profile' %}">
-                          <span class="badge badge-pill badge-danger" >
-                              <i class="far fa-heart ml-1 " ></i>
-                              Profile</span></a>
-                    </p>
-
-                    {% else %}
-
-                    <p class="nav-item ">
-                      <a class="nav-link blue-text mr-2 " href="{% url 'users:login' %}">
-                          <i class="fas fa-user blue-text" aria-hidden="true"></i>Login</a>
-                    </p>
-
-                    <p class="nav-item" style="font-weight: bold">
-                      <a class="nav-link mr-4" href="{% url 'users:register' %}">
-                          <span class="badge badge-pill badge-danger" >
-                              <i class="far fa-gem ml-1 " ></i>
-                              Register</span></a>
-                    </p>
-
-
-                {% endif %}
-                </div>
-            </div>
 </ul>
+            </div>
+      </nav>
 <!--<div class="tab-content" id="myTabContent">-->
 <!--  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">...</div>-->
 <!--  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>-->
@@ -204,4 +147,7 @@
 <!--</div>-->
 
   <br>
+
+
+
          </header>
