@@ -21,8 +21,16 @@ header,
     font-weight: 500;
 }
 
+.navbar-collapse {
+    background: #fff;
+    margin: -.5rem -1rem;
+    padding: .5rem 1rem;
+}
+
 .top-nav-collapse, .page-footer {
     background-color: #fff !important;
+    background: #fff;
+    color: #fff;
 }
 
 .footer.page-footer {
@@ -46,7 +54,7 @@ footer.page-footer a {
 
 @media (max-width: 991px) {
     .navbar:not(.top-nav-collapse) {
-        background: #fff !important; #aici am pus sa fie alba cand se face mai mica
+        background: #fff !important;
     }
 }
 
@@ -82,3 +90,23 @@ footer.page-footer a {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#002f4b', endColorstr='#00000000', GradientType=0);
     /* IE6-9 */
 }
+
+
+.contact-section .form .btn-floating {
+          left: 3px;
+        }
+
+
+.input-grey .form-control {
+border-radius: .125rem;}
+
+.input-grey input::placeholder {
+color: #fff;}
+
+.input-grey.input-round {
+border-radius: 10em;}
+
+.input-grey.input-round.input-group>.input-group-append>.btn{
+border-top-left-radius: 10em;
+border-bottom-left-radius: 10em;}
+
