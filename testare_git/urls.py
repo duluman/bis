@@ -15,25 +15,29 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from testare_git.views import home_page, read_more
+from testare_git.views import home_page, read_more, creative_page
 from django.conf import settings
 from django.conf.urls.static import static
 
 # you can change the header am title form de admin page
-admin.site.site_header = " Visit Romania Admin"
+admin.site.site_header = " Boanca Ionut Silviu Admin Page"
 admin.site.site_title = " Admin "
 
 
 urlpatterns = [
     path('admin/', admin.site.urls, name='admin_view'),
-    path('', view=home_page),
+    path('visitromania/', view=home_page),
+    path('', view=creative_page, name='home'),
     path('read_more/', view=read_more),
     path('hotel/', include("hotel.urls")),
     path('review/', include("review.urls")),
     path('users/', include("users.urls")),
     path('users/activate/', include("activation.urls")),
     path('social-auth/', include('social_django.urls', namespace='social')),
-    path('payments/', include("payments.urls"))
+    path('payments/', include("payments.urls")),
+    path('story/', include("story.urls")),
+    path('personal-development/', include("personal.urls")),
+    path('professional-development/', include("professional.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 

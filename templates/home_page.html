@@ -19,15 +19,17 @@
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet"  href="{% static 'style/bootstrap.min.css' %}">
   <link rel="stylesheet" href="{% static 'style/mdb.lite.css' %}">
+    <link rel="stylesheet" href="{% static 'style/style.css' %}">
 
 </head>
 <body>
 <!--Main Navigation-->
 
-{% include 'snippets/nav_bar_snippet.html' %}
+{% include 'snippets/nav_bar_snippet2.html' %}
 
 <!--Main Navigation-->
 {% include 'snippets/messages_add_snippet.html' %}
+
 <!--Main layout-->
 <main style="padding:15px 30px 25px 30px ">
 <!--Main container-->
@@ -66,11 +68,11 @@
   <!-- jQuery -->
   <script type="text/javascript" src=" {% static 'style/js/jquery.min.js'%}"></script>
   <!-- Bootstrap tooltips -->
-  <!--<script type="text/javascript" src="{% static 'style/js/popper.min.js'%}"></script>-->
+  <script type="text/javascript" src="{% static 'style/js/popper.min.js'%}"></script>
   <!-- Bootstrap core JavaScript -->
   <script type="text/javascript" src="{% static 'style/js/bootstrap.min.js'%}"></script>
   <!-- MDB core JavaScript -->
-  <!--<script type="text/javascript" src="{% static 'style/js/mdb.min.js'%}"></script>-->
+  <script type="text/javascript" src="{% static 'style/js/mdb.min.js'%}"></script>
   <!-- Your custom scripts (optional) -->
   <!--<script type="text/javascript"></script>-->
 

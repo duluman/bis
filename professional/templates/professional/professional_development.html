@@ -1,0 +1,169 @@
+{% extends "homepage.html" %}
+{% load static %}
+
+{% block homepage %}
+
+{% for element in background_list_template %}
+
+{% if element.picture %}
+  <div class="view jarallax" data-jarallax='{"speed": 0.01}' style="background-image: url('{{ MEDIA_URL }}{{ element.picture }}'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+    <!-- Mask & flexbox options-->
+    <div class="mask rgba-white-light d-flex justify-content-center align-items-center">
+      <!-- Content -->
+      <div class="container">
+        <!--Grid row-->
+        <div class="row">
+          <!--Grid column-->
+          <div class="col-md-12 white-text text-center">
+            <h1 class="display-3 mb-0 pt-md-5 pt-5 black-text font-weight-bold wow fadeInDown" data-wow-delay="3s">{{ element.title }}
+<!--              <a class="indigo-text font-weight-bold">IONUT SILVIU</a>-->
+            </h1>
+            <h5 class="text-uppercase pt-md-5 pt-sm-2 pt-5 pb-md-5 pb-sm-3 pb-5 black-text font-weight-bold wow fadeInDown"
+              data-wow-delay="2s">{{ element.subtitle }}</h5>
+
+          </div>
+          <!--Grid column-->
+        </div>
+        <!--Grid row-->
+      </div>
+      <!-- Content -->
+    </div>
+    <!-- Mask & flexbox options-->
+  </div>
+{% endif %}
+{% endfor %}
+
+<div class="container z-depth-1 my-5 py-5 px-4 px-lg-0">
+
+  <!-- Section -->
+  <section>
+
+    <style>
+      .timeline {
+        position: relative;
+        list-style: none;
+        padding: 1rem 0;
+        margin: 0;
+      }
+
+      .timeline::before {
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        margin-left: -1px;
+        background-color: #50a1ff;
+      }
+
+      .timeline-element {
+        position: relative;
+        width: 50%;
+        padding: 1rem 0;
+        padding-right: 2.5rem;
+        text-align: right;
+      }
+
+      .timeline-element::before {
+        content: '';
+        position: absolute;
+        right: -8px;
+        top: 1.35rem;
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        border: 2px solid #50a1ff;
+        background-color: #fff;
+      }
+
+      .timeline-element:nth-child(even)::before {
+        right: auto;
+        left: -8px;
+      }
+
+      .timeline-element:nth-child(even) {
+        margin-left: 50%;
+        padding-left: 2.5rem;
+        padding-right: 0;
+        text-align: left;
+      }
+
+      @media (max-width: 767.98px) {
+        .timeline::before {
+          left: 8px;
+        }
+      }
+
+      @media (max-width: 767.98px) {
+        .timeline-element {
+          width: 100%;
+          text-align: left;
+          padding-left: 2.5rem;
+          padding-right: 0;
+        }
+      }
+
+      @media (max-width: 767.98px) {
+        .timeline-element::before {
+          top: 1.25rem;
+          left: 1px;
+        }
+      }
+
+      @media (max-width: 767.98px) {
+        .timeline-element:nth-child(even) {
+          margin-left: 0rem;
+        }
+      }
+
+      @media (max-width: 767.98px) {
+        .timeline-element {
+          width: 100%;
+          text-align: left;
+          padding-left: 2.5rem;
+          padding-right: 0;
+        }
+      }
+
+      @media (max-width: 767.98px) {
+        .timeline-element:nth-child(even)::before {
+          left: 1px;
+        }
+      }
+
+      @media (max-width: 767.98px) {
+        .timeline-element::before {
+          top: 1.25rem;
+        }
+      }
+    </style>
+
+
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+
+        <ol class="timeline">
+            {% for element in professional_list_template %}
+          <li class="timeline-element">
+            <h5 class="font-weight-bold dark-grey-text mb-3">{{ element.title }}</h5>
+            <p class="grey-text font-small"><time datetime="2017-02-08">{{ element.date }}</time></p>
+            <p class="text-muted" style="text-align:justify">{{ element.body }}</p>
+               {% if element.picture %}
+              <p><img class="img-fluid z-depth-1-half rounded" src="{{ MEDIA_URL }}{{ element.picture }}" alt="..."></p>
+                 {% endif %}
+          </li>
+
+          {% endfor %}
+        </ol>
+
+      </div>
+    </div>
+
+  </section>
+  <!-- Section -->
+
+</div>
+
+{% endblock homepage %}

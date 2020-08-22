@@ -10,5 +10,7 @@ def read_more(request):
     return render(request, "read_more.html")
 
 
+def creative_page(request):
+    return render(request, "homepage.html")
 
 

@@ -1,42 +1,38 @@
-
-<!--<br>-->
-<!--  <header style="margin: 15px 15px 15px 15px">-->
-<header>
-<!--Boanca Ionut Silviu Navigation Bar-->
-
-<nav class="navbar fixed-top navbar-expand-sm font-weight-bold  navbar-light  lighten-4 mb-4">
-  <button class="navbar-toggler toggler-example lighten-4 " type="button" data-toggle="collapse" data-target="#navbarT" aria-controls="navbarT" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon">  </span> <span ></span>
+<nav class="navbar  navbar-expand-lg navbar-light bg-light fixed-top">
+  <a class="navbar-brand" href="#"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarT">
 
-  <ul class="navbar-nav mr-auto" >
-
-  <li class="nav-item ">
-    <a class="nav-link" href="{% url 'home' %}" ><i class="fas fa-home mr-1" ></i>Acasa</a>
-  </li>
-
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto" style="font-weight: bold">
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'home' %}"><i class="fas fa-home mr-1" ></i>Acasa <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
       <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-      aria-expanded="false">Despre mine</a>
-    <div class="dropdown-menu">
-      <a class="dropdown-item" href="#">Povestea mea</a>
-      <a class="dropdown-item" href="#">Dezvoltare personala</a>
-      <a class="dropdown-item" href="#">Multumiri si recunostinta</a>
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         Despre mine
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="{% url 'story:story' %}">Povestea mea</a>
+          <a class="dropdown-item" href="{% url 'personal:personal' %}">Dezvoltare personala</a>
+            <a class="dropdown-item" href="{% url 'professional:professional' %}">Dezvoltare profesionala</a>
+          <a class="dropdown-item" href="#">Multumiri si recunostinta</a>
       <div class="dropdown-divider"></div>
-      <a class="dropdown-item" href="{% url 'review:app_review' %}">Testimoniale</a>
-    </div>
-  </li>
-
-  <li class="nav-item">
+            <a class="dropdown-item" href="{% url 'review:app_review' %}">Testimoniale</a> </div>
+      </li>
+     <li class="nav-item">
       <a class="nav-link"   href="#profile">Directie</a>
   </li>
 
   <li class="nav-item ">
-      <a class="nav-link" href="#contact" >Evenimente</a>
+      <a class="nav-link" href="#" >Evenimente</a>
   </li>
 
-    <li class="nav-item dropdown">
+        <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
     aria-expanded="false">Resurse</a>
         <div class="dropdown-menu dropdown-secondary">
@@ -49,8 +45,13 @@
             <a class="dropdown-item" href="#">Separated link</a>
         </div>
     </li>
-  </ul>
-      <ul class="navbar-nav">
+        <li class="nav-item">
+      <a class="nav-link"   href="{% url 'users:contact' %}">Contact</a>
+  </li>
+
+
+    </ul>
+   <ul class="navbar-nav" style="font-weight: bold">
       <li  class="nav-item">
     <form class="form-inline">
 
@@ -91,7 +92,5 @@
 {% endif %}
 
 </ul>
-            </div>
-      </nav>
-
-         </header>
+  </div>
+</nav>
