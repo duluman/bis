@@ -33,38 +33,41 @@
 {% endif %}
 {% endfor %}
 
-{% for element in personal_list_template %}
 
-  <div class="container mt-5">
+<div class="container py-5 my-5">
+  <section class="p-md-3 mx-md-5 text-center text-lg-left">
 
-    <!--Section: Content-->
-    <section class="text-justify">
-
-        <h3 class="font-weight-bold dark-grey-text mt-4"> {{ element.title }} </h3>
-
-        <p style="text-align:justify"> {{ element.body }} </p>
-
-        {% if element.picture %}
-            <figure class="figure">
-            <img src="{{ MEDIA_URL }}{{ element.picture }}" class="figure-img img-fluid z-depth-1"
-            alt="...">
-            <!--          <figcaption class="figure-caption">A caption for the above image.</figcaption>-->
-            </figure>
-        {% endif %}
-
-        {% if element.youtube %}
-            <div class="embed-responsive embed-responsive-16by9">
-                <iframe class="embed-responsive-item"  src="https://www.youtube.com/embed/{{ element.youtube }}"  allowfullscreen>
-                </iframe>
+    <div class="row">
+        {% for element in event_list_template %}
+      <div class="col-lg-4 mb-4">
+        <div class="card">
+          <div
+            class="avatar w-100 white d-flex justify-content-center align-items-center"
+          >
+            <img
+              src="{{ MEDIA_URL }}{{ element.picture }}"
+              class="img-fluid"
+            />
+          </div>
+            <div>
+                 {% if element.youtube %}
+                     <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item"  src="https://www.youtube.com/embed/{{ element.youtube }}"  allowfullscreen>
+                        </iframe>
+                     </div>
+                 {% endif %}
             </div>
-        {% endif %}
+          <div class="card-body">
+            <p class="font-weight-bold my-2">{{ element.title }}</p>
+            <p class="text-muted">{{ element.body }}</p>
+          </div>
+        </div>
+      </div>
+        {% endfor %}
+    </div>
+  </section>
+</div>
 
-              </section>
-              <!--Section: Content-->
-        <p class="my-4 font-weight-bold">{{ element.date }}</p>
 
-
-  </div>
-{% endfor %}
 
 {% endblock homepage %}

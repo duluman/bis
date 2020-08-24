@@ -1,0 +1,70 @@
+{% extends "homepage.html" %}
+{% load static %}
+
+{% block homepage %}
+
+
+
+{% for element in background_list_template %}
+
+{% if element.picture %}
+  <div class="view jarallax" data-jarallax='{"speed": 0.01}' style="background-image: url('{{ MEDIA_URL }}{{ element.picture }}'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+    <!-- Mask & flexbox options-->
+    <div class="mask  d-flex justify-content-center align-items-center">
+      <!-- Content -->
+      <div class="container">
+        <!--Grid row-->
+        <div class="row">
+          <!--Grid column-->
+          <div class="col-md-12 dark-text text-center">
+            <h2 class="display-4 mb-0 pt-md-5 pt-5  font-weight-bold wow fadeInDown" data-wow-delay="3s">{{ element.title }}
+
+            </h2>
+            <h5 class="text-uppercase pt-md-5 pt-sm-2 pt-5 pb-md-5 pb-sm-3 pb-5  font-weight-bold wow fadeInDown"
+              data-wow-delay="2s">{{ element.subtitle }}</h5>
+
+          </div>
+          <!--Grid column-->
+        </div>
+        <!--Grid row-->
+      </div>
+      <!-- Content -->
+    </div>
+    <!-- Mask & flexbox options-->
+  </div>
+
+
+{% endif %}
+{% endfor %}
+{% if not  element in background_list_template %}
+<br><br><br>
+{% endif %}
+
+
+<div class="container">
+{% for item in song %}
+<div class="card mb-3" style="padding-top: 3%">
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <img src="{{ MEDIA_URL }}{{ item.picture }}" class="card-img" alt="{{ item.title }}">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="font-weight-bold dark-text mt-4">{{ item.title }}</h5>
+          <p class="font-weight-bold my-4 pb-2">{{ item.category }}</p>
+
+           <audio controls style="padding-top: 2%;">
+                <source src="{{ MEDIA_URL }}{{item.audio_file}}" type="audio/mp3">
+            </audio>
+        </div>
+        <p style=" padding-left: 3%; padding-right: 3%; text-align:justify;">{{ item.body }}</p>
+      </div>
+
+    </div>
+
+  </div>
+  {% endfor %}
+</div>
+
+
+{% endblock homepage %}

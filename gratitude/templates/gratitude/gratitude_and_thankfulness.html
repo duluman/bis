@@ -14,11 +14,11 @@
         <!--Grid row-->
         <div class="row">
           <!--Grid column-->
-          <div class="col-md-12 white-text text-center">
-            <h1 class="display-4 mb-0 pt-md-5 pt-5 white-text font-weight-bold wow fadeInDown" data-wow-delay="3s">{{ element.title }}
+          <div class="col-md-12 dark-text text-center">
+            <h2 class="display-4 mb-0 pt-md-5 pt-5  font-weight-bold wow fadeInDown" data-wow-delay="3s">{{ element.title }}
 <!--              <a class="indigo-text font-weight-bold">IONUT SILVIU</a>-->
-            </h1>
-            <h5 class="text-uppercase pt-md-5 pt-sm-2 pt-5 pb-md-5 pb-sm-3 pb-5 white-text font-weight-bold wow fadeInDown"
+            </h2>
+            <h5 class="text-uppercase pt-md-5 pt-sm-2 pt-5 pb-md-5 pb-sm-3 pb-5  font-weight-bold wow fadeInDown"
               data-wow-delay="2s">{{ element.subtitle }}</h5>
 
           </div>
@@ -33,7 +33,7 @@
 {% endif %}
 {% endfor %}
 
-{% for element in personal_list_template %}
+{% for element in gratitude_list_template %}
 
   <div class="container mt-5">
 
@@ -42,7 +42,7 @@
 
         <h3 class="font-weight-bold dark-grey-text mt-4"> {{ element.title }} </h3>
 
-        <p style="text-align:justify"> {{ element.body }} </p>
+        <p style="text-align:justify"> {{ element.body }}</p>
 
         {% if element.picture %}
             <figure class="figure">
