@@ -1,0 +1,129 @@
+{% extends "homepage.html" %}
+{% load static %}
+
+{% block homepage %}
+
+<br><br><br>
+
+
+
+<!--version 2-->
+<div class="container mt-5">
+
+
+  <!--Section: Content-->
+  <section class="dark-grey-text p-md-3 mx-md-5">
+
+{% for element in direction_list_template %}
+      {% if forloop.counter|divisibleby:2 %}
+    <!-- Grid row -->
+    <div class="row align-items-left">
+      <!-- Grid column -->
+       {% if element.picture %}
+
+      <div class="col-md-5 col-lg-5">
+
+<!--         <div class="col-lg-5 col-md-5">-->
+
+        <!-- Featured image -->
+        <div class="view overlay rounded z-depth-2 mb-lg-0 mb-4">
+          <img class="img-fluid" src="{{ MEDIA_URL }}{{ element.picture }}">
+          <a>
+            <div class="mask rgba-white-slight"></div>
+          </a>
+        </div>
+
+      </div>
+       {% endif  %}
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+
+      <div class="col-lg-7 col-md-7">
+
+        <div class="col-md-7 col-lg-7 ">
+
+        <!-- Category -->
+
+        <!-- Post title -->
+        <h4 class="font-weight-bold mb-3"><strong>{{ element.title }}</strong></h4>
+        <!-- Excerpt -->
+        <p style="text-align:justify">{{ element.body }}</p>
+        <!-- Post data -->
+
+
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row -->
+
+    <hr class="my-5">
+    </div>
+       {% endif  %}
+{% endfor %}
+  </section>
+  <!--Section: Content-->
+
+
+</div>
+
+<!--version 2-->
+<div class="container mt-5">
+
+
+  <!--Section: Content-->
+  <section class="dark-grey-text p-md-3 mx-md-5">
+
+{% for element in direction_list_template %}
+       {% if not forloop.counter|divisibleby:2 %}
+    <!-- Grid row -->
+    <div class="row align-items-left">
+      <!-- Grid column -->
+       {% if element.picture %}
+
+         <div class="col-lg-7 col-md-7">
+
+        <!-- Featured image -->
+        <div class="view overlay rounded z-depth-2 mb-lg-0 mb-4">
+          <img class="img-fluid" src="{{ MEDIA_URL }}{{ element.picture }}">
+          <a>
+            <div class="mask rgba-white-slight"></div>
+          </a>
+        </div>
+
+      </div>
+       {% endif  %}
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+
+       <div class="col-lg-5 col-md-5">
+
+        <div class="col-md-7 col-lg-7 ">
+
+        <!-- Category -->
+
+        <!-- Post title -->
+        <h4 class="font-weight-bold mb-3"><strong>{{ element.title }}</strong></h4>
+        <!-- Excerpt -->
+        <p style="text-align:justify">{{ element.body }}</p>
+        <!-- Post data -->
+
+
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row -->
+
+    <hr class="my-5">
+    </div>
+      {% endif  %}
+{% endfor %}
+  </section>
+  <!--Section: Content-->
+
+
+</div>
+{% endblock homepage %}

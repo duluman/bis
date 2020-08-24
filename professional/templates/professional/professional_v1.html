@@ -1,0 +1,52 @@
+<div class="container mt-5">
+
+
+  <!--Section: Content-->
+  <section class="dark-grey-text">
+  {% for element in background_list_template %}
+    <!-- Section heading -->
+    <h2 class="text-center font-weight-bold mb-4 pb-2">{{ element.title }}</h2>
+    <!-- Section description -->
+    <p class="text-center mx-auto w-responsive mb-5">{{ element.subtitle }}</p>
+  {% endfor  %}
+  	<!-- Grid row -->
+    <div class="row align-items-center">
+    {% for element in direction_list_template %}
+      <!-- Grid column -->
+      <div class="col-lg-5 col-xl-4">
+
+        <!-- Featured image -->
+        {% if element.picture %}
+        <div class="view overlay rounded z-depth-1-half mb-lg-0 mb-4">
+          <img class="img-fluid" src="{{ MEDIA_URL }}{{ element.picture }}" alt="direction">
+          <a>
+            <div class="mask rgba-white-slight"></div>
+          </a>
+        </div>
+        {% endif %}
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-lg-7 col-xl-8">
+
+        <!-- Post title -->
+        <h4 class="font-weight-bold mb-3"><strong>{{ element.title }}</strong></h4>
+        <!-- Excerpt -->
+        <p class="dark-grey-text" style="text-align:justify">{{ element.body }}</p>
+        <!-- Post data -->
+
+      </div>
+      <!-- Grid column -->
+      <hr class="my-5">
+
+  {% endfor %}
+    </div>
+    <!-- Grid row -->
+
+
+  </section>
+  <!--Section: Content-->
+
+
+</div>

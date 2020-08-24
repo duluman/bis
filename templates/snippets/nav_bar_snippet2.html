@@ -9,9 +9,7 @@
       <li class="nav-item">
         <a class="nav-link" href="{% url 'home' %}"><i class="fas fa-home mr-1" ></i>Acasa <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
+
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
          Despre mine
@@ -20,24 +18,24 @@
           <a class="dropdown-item" href="{% url 'story:story' %}">Povestea mea</a>
           <a class="dropdown-item" href="{% url 'personal:personal' %}">Dezvoltare personala</a>
             <a class="dropdown-item" href="{% url 'professional:professional' %}">Dezvoltare profesionala</a>
-          <a class="dropdown-item" href="#">Multumiri si recunostinta</a>
+          <a class="dropdown-item" href="{% url 'gratitude:gratitude' %}">Multumiri si recunostinta</a>
       <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="{% url 'review:app_review' %}">Testimoniale</a> </div>
       </li>
      <li class="nav-item">
-      <a class="nav-link"   href="#profile">Directie</a>
+      <a class="nav-link"   href="{% url 'direction:direction' %}">Directie</a>
   </li>
 
   <li class="nav-item ">
-      <a class="nav-link" href="#" >Evenimente</a>
+      <a class="nav-link" href="{% url 'event:event' %}" >Evenimente</a>
   </li>
 
         <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
     aria-expanded="false">Resurse</a>
         <div class="dropdown-menu dropdown-secondary">
-            <a class="dropdown-item" href="#">Text</a>
-            <a class="dropdown-item" href="#">Audio</a>
+            <a class="dropdown-item" href="{% url 'text:text' %}">Text</a>
+            <a class="dropdown-item" href="{% url 'audio:audio' %}">Audio</a>
             <a class="dropdown-item" href="#">Video</a>
             <a class="dropdown-item" href="#">Interviuri</a>
             <a class="dropdown-item" href="#">Unelte</a>
@@ -94,3 +92,4 @@
 </ul>
   </div>
 </nav>
+

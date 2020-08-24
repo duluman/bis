@@ -38,6 +38,11 @@ urlpatterns = [
     path('story/', include("story.urls")),
     path('personal-development/', include("personal.urls")),
     path('professional-development/', include("professional.urls")),
+    path('gratitude/', include("gratitude.urls")),
+    path('direction/', include("direction.urls")),
+    path('events/', include("event.urls")),
+    path('resource/text/', include("text.urls")),
+    path('resource/audio/', include("audio.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 
