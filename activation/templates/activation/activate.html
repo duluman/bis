@@ -1,6 +1,12 @@
+{% extends "homepage.html" %}
+{% load static %}
+{% block homepage %}
+<br><br><br>
 
 <p style="color:red">
-    Link Expired
+    Link a exiprat!
 </p>
 
-<a href="{% ulr 'activation:activate' token %}?resend=true"> Resend link </a>
+<a href="{% ulr 'activation:activate' token %}?resend=true"> Trimite un nou link </a>
+
+{% endblock homepage %}

@@ -2,8 +2,42 @@
 
 html,
 body,
+header,.view {
+height: 100%;
+}
+
+@media (max-width: 740px) {
+html,
+body,
 header,
-#intro-section {
+.view {
+  height: 100vh;
+}
+}
+
+.top-nav-collapse {
+background-color: #fff !important;
+}
+
+.navbar:not(.top-nav-collapse) {
+background: transparent !important;
+}
+
+@media (max-width: 991px) {
+.navbar:not(.top-nav-collapse) {
+background: #82b1ff !important;
+}
+}
+
+h5 {
+letter-spacing: 3px;
+}
+
+
+
+
+
+intro-section {
     height: 100%;
 }
 
@@ -19,6 +53,7 @@ header,
 .navbar .dropdown-menu a:not(.active) {
     color: #000;
     font-weight: 500;
+
 }
 
 .navbar-collapse {
@@ -109,4 +144,9 @@ border-radius: 10em;}
 .input-grey.input-round.input-group>.input-group-append>.btn{
 border-top-left-radius: 10em;
 border-bottom-left-radius: 10em;}
+
+
+
+
+
 

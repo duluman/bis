@@ -21,10 +21,6 @@ class BodyTextModel(models.Model):
     body = models.TextField(default=None, blank=True)
     image = models.ImageField(upload_to='text/', blank=True, null=True)
 
-    # def get_absolute_url(self):
-    #
-    #     return reverse('text:details')
-
     def __str__(self):
         return self.title
 

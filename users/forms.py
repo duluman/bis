@@ -8,25 +8,25 @@ class LoginForm(forms.Form):
     password = forms.CharField(
         required=True,
         max_length=255,
-        label='Password',
+        label='Parola',
         widget=forms.PasswordInput,)
 
 
 class RegisterForm(forms.Form):
-    first_name = forms.CharField(required=True, max_length=255, label='First Name')
-    last_name = forms.CharField(required=True, max_length=255, label='Last Name')
+    first_name = forms.CharField(required=True, max_length=255, label='Prenume')
+    last_name = forms.CharField(required=True, max_length=255, label='Nume')
     email = forms.EmailField(required=True, label='E-mail')
 
     password = forms.CharField(
         required=True,
         max_length=255,
-        label='Password',
+        label='Parola',
         widget=forms.PasswordInput,
     )
     password_confirm = forms.CharField(
         required=True,
         max_length=255,
-        label='Confirm password',
+        label='Confirma parola',
         widget=forms.PasswordInput,
     )
 
@@ -35,7 +35,7 @@ class RegisterForm(forms.Form):
         users = MyUser.objects.filter(email=email)
 
         if users.count() != 0:
-            raise forms.ValidationError('E-mail already exists.')
+            raise forms.ValidationError('E-mail-ul exista in baza de date')
 
         return email
 
@@ -106,12 +106,12 @@ class SetPassword(forms.Form):
 
 
 class ContactForm(forms.Form):
-    first_name = forms.CharField(required=True, max_length=255, label='First Name')
-    last_name = forms.CharField(required=True, max_length=255, label='Last Name')
+    first_name = forms.CharField(required=True, max_length=255, label='Nume')
+    last_name = forms.CharField(required=True, max_length=255, label='Prenume')
     email = forms.EmailField(required=True, label='E-mail')
-    mobile = forms.CharField(required=False, max_length=20, label='Mobile Phone')
-    subject = forms.CharField(required=True, max_length=255, label='Subject')
-    message = forms.CharField(required=True, min_length=30, max_length=1000, label='Your message')
+    mobile = forms.CharField(required=False, max_length=20, label='Numar de telefon')
+    subject = forms.CharField(required=True, max_length=255, label='Subiect')
+    message = forms.CharField(required=True, min_length=10, max_length=1000, label='Mesajul tau', widget=forms.Textarea)
 
 
 

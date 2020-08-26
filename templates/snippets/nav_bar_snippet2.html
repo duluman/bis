@@ -1,69 +1,79 @@
-<nav class="navbar  navbar-expand-lg navbar-light bg-light fixed-top">
+<nav class="navbar  navbar-expand-lg navbar-light fixed-top" style="background-color: #fff;">
+<!--    <div class="container">-->
   <a class="navbar-brand" href="#"></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="background-color: #b8b8b8;">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent" >
     <ul class="navbar-nav mr-auto" style="font-weight: bold">
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'home' %}"><i class="fas fa-home mr-1" ></i>Acasa <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="{% url 'home' %}"><i class="fas fa-home mr-1 indigo-text" ></i>Acasa <span class="sr-only">(current)</span></a>
       </li>
 
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
          Despre mine
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="{% url 'story:story' %}">Povestea mea</a>
-          <a class="dropdown-item" href="{% url 'personal:personal' %}">Dezvoltare personala</a>
-            <a class="dropdown-item" href="{% url 'professional:professional' %}">Dezvoltare profesionala</a>
-          <a class="dropdown-item" href="{% url 'gratitude:gratitude' %}">Multumiri si recunostinta</a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown" >
+          <a class="dropdown-item" href="{% url 'story:story' %}" style="font-weight: bold">Povestea mea</a>
+          <a class="dropdown-item" href="{% url 'personal:personal' %}" style="font-weight: bold">Dezvoltare personala</a>
+            <a class="dropdown-item" href="{% url 'professional:professional' %}" style="font-weight: bold">Dezvoltare profesionala</a>
+          <a class="dropdown-item" href="{% url 'gratitude:gratitude' %}" style="font-weight: bold">Multumiri si recunostinta</a>
       <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="{% url 'review:app_review' %}">Testimoniale</a> </div>
+            <a class="dropdown-item" href="{% url 'review:app_review' %}" style="font-weight: bold">Testimoniale</a> </div>
       </li>
      <li class="nav-item">
-      <a class="nav-link"   href="{% url 'direction:direction' %}">Directie</a>
+      <a class="nav-link"   href="{% url 'direction:direction' %}" style="font-weight: bold">Directie</a>
   </li>
 
   <li class="nav-item ">
-      <a class="nav-link" href="{% url 'event:event' %}" >Evenimente</a>
+      <a class="nav-link" href="{% url 'event:event' %}"style="font-weight: bold" >Evenimente</a>
   </li>
 
         <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
     aria-expanded="false">Resurse</a>
         <div class="dropdown-menu dropdown-secondary">
-            <a class="dropdown-item" href="{% url 'text:text' %}">Text</a>
-            <a class="dropdown-item" href="{% url 'audio:audio' %}">Audio</a>
-            <a class="dropdown-item" href="#">Video</a>
-            <a class="dropdown-item" href="#">Interviuri</a>
-            <a class="dropdown-item" href="#">Unelte</a>
+            <a class="dropdown-item" href="{% url 'text:text' %}" style="font-weight: bold">Text
+                <i class="fas fa-envelope green-text ml-4" style="text-align: right" ></i></a>
+            <a class="dropdown-item" href="{% url 'audio:audio' %}" style="font-weight: bold">Audio
+                <i class="fas fa-music indigo-text ml-4" ></i></a>
+            <a class="dropdown-item" href="{% url 'video:video' %}" style="font-weight: bold">Video
+                <i class="fas fa-video red-text ml-4" ></i></a>
+            <a class="dropdown-item" href="{% url 'interview:interview' %}" style="font-weight: bold">Interviuri
+                <i class="fas fa-microphone amber-text ml-2" ></i></a>
+            <a class="dropdown-item" href="{% url 'tool:tool' %}" style="font-weight: bold">Unelte
+                <i class="fas fa-tools dark-text ml-4" ></i></a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Separated link</a>
+            <a class="dropdown-item" href="{% url 'book:book' %}" style="font-weight: bold">Recomandari de carte
+                <i class="fas fa-book red-text ml-1" ></i></a>
         </div>
     </li>
         <li class="nav-item">
-      <a class="nav-link"   href="{% url 'users:contact' %}">Contact</a>
+      <a class="nav-link"   href="{% url 'users:contact' %}" >Contact</a>
   </li>
 
 
     </ul>
    <ul class="navbar-nav" style="font-weight: bold">
       <li  class="nav-item">
-    <form class="form-inline">
 
-        <input class="form-control mr-sm-2" type="text" placeholder="...">
-        <a class="nav-link" type="submit"><i class="fas fa-search " ></i>Cauta</a>
-
-    </form>
+        <form class="form-inline" action="{% url 'search:search' %}"  method="POST">
+            {% csrf_token %}
+                <div class="md-form my-0">
+              <input type="text" name="search_for" value="{{ search_term }}"
+                     placeholder="cuvant cheie">
+            <button class="btn btn-sm btn-outline-dark " type="submit"><i class="fas fa-search"></i></button>
+                </div>
+        </form>
     </li>
 
     {% if user.is_authenticated %}
 
-    <li class="nav-item  ">
-        <a class="nav-link"   href="#contact">
-        Welcome, {{ user.first_name }}!
+    <li class="nav-item">
+        <a class="nav-link">
+        Salut, {{ user.first_name }}!
         </a>
     </li>
 
@@ -71,25 +81,26 @@
           <a class="nav-link" href="{% url 'users:logout' %}">Logout</a></li>
 
       <li class="nav-item  ">
-    <a class="nav-link" id="prof-tab"  href="{% url 'users:profile' %}" ><i class='fas fa-user  mr-1'></i>Profile</a>
+    <a class="nav-link" id="prof-tab"  href="{% url 'users:profile' %}" ><i class='fas fa-user  blue-text mr-1'></i>Profil</a>
   </li>
 
     {% else %}
 
     <li class="nav-item">
       <a class="nav-link " href="{% url 'users:login' %}">
-          <i class="fas fa-user" aria-hidden="true"></i>Login</a>
+          <i class="fas fa-user blue-text" aria-hidden="true"></i>Autentificare</a>
     </li>
 
     <li class="nav-item" style="font-weight: bold">
       <a class="nav-link" href="{% url 'users:register' %}">
-          <i class="far fa-gem " ></i>
-              Register</a>
+          <i class="fas fa-gem red-text" ></i>
+              Inregistrare</a>
     </li>
 
 {% endif %}
 
 </ul>
   </div>
+<!--        </div>-->
 </nav>
 

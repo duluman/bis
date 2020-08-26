@@ -51,11 +51,11 @@
 
         {% endif %}
          <h4 class="my-4 font-weight-bold">{{ element.title }}</h4>
-        <p> Location: {{ element.subtitle }} </p>
+        <p> {{ element.subtitle }} </p>
 
 
         <div  class="container-fluid d-flex align-items-center justify-content-center">
-            <a href="{% url 'text:details' element.id %}" class="btn btn-primary">Citeste</a>
+            <a href="{% url 'text:details' element.id %}" class="btn" style="font-weight: bold;">Citeste</a>
 
                 </div>
 

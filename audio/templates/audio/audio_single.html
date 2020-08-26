@@ -52,6 +52,7 @@
         <div class="card-body">
           <h5 class="font-weight-bold dark-text mt-4">{{ item.title }}</h5>
           <p class="font-weight-bold my-4 pb-2">{{ item.category }}</p>
+          <p class="font-weight-bold my-4 pb-2">{{ item.author }}</p>
 
            <audio controls style="padding-top: 2%;">
                 <source src="{{ MEDIA_URL }}{{item.audio_file}}" type="audio/mp3">

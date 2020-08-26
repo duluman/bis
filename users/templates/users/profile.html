@@ -3,17 +3,16 @@
 
 {% block homepage %}
 <br><br><br>
+<div class="container">
 <div class="row">
+
     <div class="col-md-4" >
 
-    <p> First Name: {{ user.first_name }}</p>
-    <p> Last Name: {{ user.last_name }}</p>
+    <p> Prenume: {{ user.first_name }}</p>
+    <p> Nume: {{ user.last_name }}</p>
     <p> E-mail: {{ user.email }}</p>
-        <p> Your ip address is : {{ ip_address }}  </p>
 
-    <a class="btn btn-primary mb-2" href="{% url 'users:profile_email' %}">E-mail me</a>
-
-    <br>
+      <br>
         <br>
         {% if request.user.stripe_data.customer_id  %}
     <a class="btn btn mb-2" href="{% url 'payments:view_cards' %}">My cards</a>
@@ -33,13 +32,13 @@
         <form method="post" action="{% url 'users:profile'  %}" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.as_p }}
-            <input class="btn btn-green mb-2"  type="submit" value="Change profile picture">
+            <input class="btn btn-green mb-2 font-weight-bold"  type="submit" value="Modifica poza de profil">
         </form>
     </div>
     <div class="col-md-4 " style="text-align:right">
-        <a class="btn btn-red mb-2"  href="{% url 'users:change_password' %}">Change password</a>
+        <a class="btn btn-red mb-2 font-weight-bold"  href="{% url 'users:change_password' %}">Modifica parola</a>
     </div>
-
+</div>
 </div>
 
 {% endblock homepage %}

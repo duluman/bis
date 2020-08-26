@@ -13,6 +13,8 @@ from users.forms import ContactForm
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib import messages
 from django.contrib.auth import update_session_auth_hash
+from django import forms
+from django.utils.translation import gettext_lazy as _
 
 
 def handle_login(request):
@@ -147,7 +149,7 @@ def contact_view(request):
             )
 
             mail = EmailMultiAlternatives(
-                f'Visit Romania:{subject}',
+                f'Boanca Ionut Silviu:{subject}',
                 email_content,
                 settings.EMAIL_HOST_USER,
                 [email],
@@ -155,7 +157,7 @@ def contact_view(request):
             )
             mail.content_subtype = 'html'
             mail.send()
-
+            messages.success(request, 'Mesajul tau a fost trimis!')
             return HttpResponseRedirect(reverse('users:contact'))
     else:
         form = ContactForm()
@@ -165,15 +167,17 @@ def contact_view(request):
 
 @login_required
 def change_password(request):
+
     if request.method == 'POST':
         form = PasswordChangeForm(request.user, request.POST)
+
         if form.is_valid():
             user = form.save()
             update_session_auth_hash(request, user)
-            messages.success(request, 'Your password was successfully updated!')
+            messages.success(request, 'Parola ta a fost modificata')
             return redirect('users:profile')
         else:
-            messages.error(request, 'Please correct the error below.')
+            messages.error(request, 'Corecteaza eroarea de mai jos')
     else:
         form = PasswordChangeForm(request.user)
     return render(request, 'users/change_password.html', {

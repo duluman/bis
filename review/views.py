@@ -23,7 +23,7 @@ def app_review_view(request):
 class AddReviewView(CreateView):
     model = AppReview
     template_name = 'review/add_review.html'
-    fields = ['comment', 'stars']
+    fields = ['comment', 'profession']
 
     def get_initial(self):
         initial = {'name': self.request.user}

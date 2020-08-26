@@ -4,23 +4,21 @@
 <br>
 <br>
 <br>
+<div class="container">
 {% if request.user.is_authenticated %}
+    <a href="{% url 'review:add_review' %}" >
+        <p class="font-weight-bold"><i class="fas fa-user blue-text mr-2"> </i> Adauga un testimonial! </p> </a>
 
-    <a class="nav-link red-text mr-2 " href="{% url 'review:add_review' %}" >
-                        <i class="fas fa-magic  mr-1"></i><i class="fas fa-user blue-text">
-
-    </i><h3> Add review </h3> </a>
-
-    <section class="section pb-3 text-center">
 {% else %}
 
-    <h4>If you want to add a review, please <a href="{% url 'users:login' %}">login </a></h4>
+    <p class="font-weight-bold"> Pentru a adauga un testimonial, te rog sa te autentifici <a href="{% url 'users:login' %}"> aici </a>.</p>
+    <p class="font-weight-bold"> Daca nu ai cont, te poti inregistra  <a href="{% url 'users:register' %}"> aici </a>.</p>
 
 {%  endif %}
     <br>
-</section>
 
-<div class="container py-5 my-5">
+
+
   <section class="p-md-5 mx-md-5 text-center text-lg-left">
     <div class="row">
         {% for customer_review in review_list %}
@@ -52,7 +50,7 @@
                 class="col-lg-8 text-muted d-flex flex-column justify-content-end pt-2"
               >
                 <p class="mb-1"><strong>{{ customer_review.name.first_name }} {{ customer_review.name.last_name }}</strong></p>
-                <p class="mb-1"><i>Full Stack Web Developer</i></p>
+                <p class="mb-1"><i>{{ customer_review.profession }}</i></p>
               </div>
             </div>
             <hr />
@@ -71,17 +69,19 @@
  {% endfor  %}
     </div>
   </section>
-</div>
-
-
-<div class="col-lg-2 col-md-12 mb-4">
+  <div class="col-lg-2 col-md-12 mb-4">
         <div class="card-body">
 
-            <h1 class=" fas mr-1 fa-user blue-text">  | {{ count_app }}</h1><br>
+            <h3 class="fas mr-1 fa-user blue-text">  | {{ count_app }}</h3><br>
                <h1>
 
             </h1>
         </div>
     </div>
+
+</div>
+
+
+
 
 {% endblock homepage %}

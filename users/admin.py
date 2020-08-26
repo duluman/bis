@@ -10,10 +10,7 @@ from django.conf import settings
 # Register your models here.
 
 admin.site.register(Profile)
-# class MyUserCreationForm(UserCreationForm):
-#     class Meta:
-#         model = MyUser
-#         exclude = []
+
 
 class MyUserCreationForm(UserCreationForm):
     class Meta:
