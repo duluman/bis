@@ -9,12 +9,7 @@ class AppReview(models.Model):
     name = models.ForeignKey(settings.AUTH_USER_MODEL,
                              on_delete=models.CASCADE)
     comment = models.TextField(default=None)
-    CHOICE = [("* * * * *", "5"),
-              ("* * * *", "4"),
-              ("* * *", "3"),
-              ("* *", "2"),
-              ("*", "1")]
-    stars = models.CharField(max_length=10, choices=CHOICE, default="*****")
+    profession = models.CharField(max_length=255, blank=True, null=True)
     date = models.DateTimeField(default=timezone.now)
 
     def __str__(self):

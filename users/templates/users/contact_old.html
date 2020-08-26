@@ -1,0 +1,352 @@
+{% extends "homepage.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block homepage %}
+
+<br>
+<br>
+<h3 class="font-weight-bold my-4 pb-2 text-center" > Trăiesc să transform imposibilul în posibil. </h3>
+<!-- Form contact -->
+<form class="p-5 grey-text col-md-4" method="post" action="{% url 'users:contact' %}">
+    {% csrf_token %}
+    {{ form | crispy }}
+    <div class="text-right">
+        <button class="btn btn-primary mr-4 font-weight-bold">Send </button> </div>
+</form>
+<!-- Form contact -->
+<form class="p-5 grey-text col-md-4" method="post" action="{% url 'users:contact' %}">
+    {% csrf_token %}
+    {% for field in form %}
+    {{ field  }}
+    {% endfor %}
+    <div class="text-right">
+        <button class="btn btn-primary mr-4 font-weight-bold">Send </button> </div>
+</form>
+
+  <div class="container my-5">
+
+
+    <!--Section: Content-->
+    <section class="contact-section dark-grey-text mb-5">
+
+
+      <!-- Form with header -->
+      <div class="card">
+
+        <!-- Grid row -->
+        <div class="row">
+
+          <!-- Grid column -->
+          <div class="col-lg-8">
+
+            <div class="card-body form">
+
+              <!-- Header -->
+              <h3 class="font-weight-bold dark-grey-text mt-4"><i class="fas fa-envelope pr-2 mr-1"></i>Te invit sa stam de vorba</h3>
+              <form method="post" action="{% url 'users:contact' %}">
+                    {% csrf_token %}
+              <!-- Grid row -->
+              <div class="row">
+
+                <!-- Grid column -->
+                <div class="col-md-6">
+                  <div class="md-form mb-0">
+                    <input type="text" id="form-contact-name" class="form-control" value="{{ first_name }}">
+                    <label for="form-contact-name" class="">Prenume</label>
+                  </div>
+                </div>
+                <!-- Grid column -->
+
+                <!-- Grid column -->
+                <div class="col-md-6">
+                  <div class="md-form mb-0">
+                    <input type="text" id="form-contact-email" class="form-control" value="{{ last_name }}">
+                    <label for="form-contact-name" class="">Nume</label>
+                  </div>
+                </div>
+                <!-- Grid column -->
+
+              </div>
+              <!-- Grid row -->
+
+              <!-- Grid row -->
+              <div class="row">
+
+                <!-- Grid column -->
+                <div class="col-md-6">
+                  <div class="md-form mb-0">
+                    <input type="text" id="form-contact-phone" class="form-control" value="{{ mobile }}">
+                    <label for="form-contact-phone" class="">Numar de telefon</label>
+                  </div>
+                </div>
+                <!-- Grid column -->
+
+                <!-- Grid column -->
+                <div class="col-md-6">
+                  <div class="md-form mb-0">
+                    <input type="text" id="form-contact-company" class="form-control" value="{{ email }}">
+                    <label for="form-contact-email" class="">Adresa de email</label>
+                  </div>
+                </div>
+                <!-- Grid column -->
+
+              </div>
+              <!-- Grid row -->
+              <!-- Grid row -->
+              <div class="row">
+
+                <!-- Grid column -->
+                <div class="col-md-6">
+                  <div class="md-form mb-0">
+                    <input type="text" id="form-contact-subject" class="form-control" value="{{ subject }}">
+                    <label for="form-contact-subject" class="">Subiect</label>
+                  </div>
+                </div>
+                <!-- Grid column -->
+
+
+
+              </div>
+              <!-- Grid row -->
+              <!-- Grid row -->
+              <div class="row">
+
+                <!-- Grid column -->
+                <div class="col-md-12">
+                  <div class="md-form mb-0">
+                    <textarea id="form-contact-message" class="form-control md-textarea" rows="7" ></textarea>
+                    <label for="form-contact-message">Mesajul tau</label>
+                    <a class="btn-floating btn-lg blue white-text" type="submit">
+                      <i class="far fa-paper-plane"></i>
+                    </a>
+                  </div>
+                </div>
+                <!-- Grid column -->
+
+              </div>
+              <!-- Grid row -->
+              </form>
+            </div>
+
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-lg-4">
+
+            <div class="card-body contact text-center h-100 dark-grey-text">
+
+              <h3 class="font-weight-bold my-4 pb-2">Informatii de contact</h3>
+
+
+              <ul class="text-lg-left list-unstyled ml-4">
+                <li>
+                  <p><i class="fas fa-map-marker-alt pr-2"></i>Cugir, Romania</p>
+                </li>
+                <li>
+                  <p><i class="fas fa-phone pr-2"></i>0769370793</p>
+                </li>
+                <li>
+                  <p><i class="fas fa-envelope pr-2">
+
+                  </i>boanca_ionut_silviu@yahoo.com</p>
+                </li>
+              </ul>
+              <hr class="hr-light my-4">
+              <ul class="list-inline text-center list-unstyled">
+                <li class="list-inline-item">
+                  <a class="p-2 fa-lg tw-ic">
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a class="p-2 fa-lg li-ic">
+                    <i class="fab fa-linkedin-in"> </i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a class="p-2 fa-lg ins-ic">
+                    <i class="fab fa-instagram"> </i>
+                  </a>
+                </li>
+              </ul>
+
+            </div>
+
+          </div>
+          <!-- Grid column -->
+
+        </div>
+        <!-- Grid row -->
+
+      </div>
+      <!-- Form with header -->
+
+    </section>
+    <!--Section: Content-->
+
+
+  </div>
+{% endblock homepage %}
+
+=============
+<div class="container my-5">
+
+
+    <!--Section: Content-->
+    <section class="contact-section dark-grey-text mb-5">
+
+
+      <!-- Form with header -->
+      <div class="card">
+
+        <!-- Grid row -->
+        <div class="row">
+
+          <!-- Grid column -->
+          <div class="col-lg-8">
+
+            <div class="card-body form">
+
+              <!-- Header -->
+              <h3 class="font-weight-bold dark-grey-text mt-4"><i class="fas fa-envelope pr-2 mr-1"></i>Te invit sa stam de vorba</h3>
+              <form method="post" action="{% url 'users:contact' %}" >
+                    {% csrf_token %}
+              <!-- Grid row -->
+              <div class="row">
+
+                <!-- Grid column -->
+                <div class="col-md-6">
+
+                    {{ form.first_name|as_crispy_field }}
+
+                </div>
+                <!-- Grid column -->
+
+                <!-- Grid column -->
+                <div class="col-md-6">
+
+                    {{ form.last_name|as_crispy_field }}
+
+                </div>
+                <!-- Grid column -->
+
+              </div>
+              <!-- Grid row -->
+
+              <!-- Grid row -->
+              <div class="row">
+
+                <!-- Grid column -->
+                <div class="col-md-6">
+
+                    {{ form.mobile|as_crispy_field }}
+
+                </div>
+                <!-- Grid column -->
+
+                <!-- Grid column -->
+                <div class="col-md-6">
+
+                    {{ form.email|as_crispy_field }}
+
+                </div>
+                <!-- Grid column -->
+
+              </div>
+              <!-- Grid row -->
+              <!-- Grid row -->
+              <div class="row">
+
+                <!-- Grid column -->
+                <div class="col-md-6">
+
+                    {{ form.subject|as_crispy_field }}
+
+                </div>
+                <!-- Grid column -->
+
+
+
+              </div>
+              <!-- Grid row -->
+              <!-- Grid row -->
+              <div class="row">
+
+                <!-- Grid column -->
+                <div class="col-md-12">
+
+                    {{ form.message|as_crispy_field }}
+
+
+                </div>
+                <!-- Grid column -->
+
+              </div>
+              <!-- Grid row -->
+                <a class="btn-floating btn-lg blue white-text" type="submit">
+                      <i class="far fa-paper-plane"></i>
+                    </a>
+                <button type="submit" class="btn btn-success">Save person</button>
+              </form>
+            </div>
+
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-lg-4">
+
+            <div class="card-body contact text-center h-100 dark-grey-text">
+
+              <h3 class="font-weight-bold my-4 pb-2">Informatii de contact</h3>
+
+
+              <ul class="text-lg-left list-unstyled ml-4">
+                <li>
+                  <p><i class="fas fa-map-marker-alt pr-2"></i>Cugir, Romania</p>
+                </li>
+                <li>
+                  <p><i class="fas fa-phone pr-2"></i>0769370793</p>
+                </li>
+                <li>
+                  <p><i class="fas fa-envelope pr-2">
+
+                  </i>boanca_ionut_silviu@yahoo.com</p>
+                </li>
+              </ul>
+              <hr class="hr-light my-4">
+              <ul class="list-inline text-center list-unstyled">
+                <li class="list-inline-item">
+                  <a class="p-2 fa-lg tw-ic">
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a class="p-2 fa-lg li-ic">
+                    <i class="fab fa-linkedin-in"> </i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a class="p-2 fa-lg ins-ic">
+                    <i class="fab fa-instagram"> </i>
+                  </a>
+                </li>
+              </ul>
+
+            </div>
+
+          </div>
+          <!-- Grid column -->
+
+        </div>
+        <!-- Grid row -->
+
+      </div>
+      <!-- Form with header -->
+
+    </section>
+    <!--Section: Content-->
+
+
+  </div>

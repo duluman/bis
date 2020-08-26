@@ -2,32 +2,30 @@
 {% load static %}
 {% load crispy_forms_tags %}
 {% block homepage %}
-
-
+<br><br><br>
+<div class="container">
 <div class="row">
 
-    <div class="col-lg-3 col-md-3 mb-4">
+
+
+    <div class="col-lg-4 col-md-3 mb-4">
+
+
+            <form method="post" action="{% url 'users:register' %}">
+                {% csrf_token %}
+                {{ form | crispy }}
+                <input type="submit" class="btn btn-primary mb-2 font-weight-bold" value="Inregistrare" />
+            </form>
+
+    </div>
+
+    <div class="col-lg-4 col-md-3 mb-4">
     <div class="view overlay zoom">
         <img src="{% static 'images/adventure_awaits.jpg'%}"
              class="img-fluid " alt="zoom" >
         <div class="mask flex-center waves-effect waves-light"></div>
     </div>
     </div>
-
-    <div class="col-lg-3 col-md-3 mb-4">
-
-        <fieldset class="form-row">
-            <form method="post" action="{% url 'users:register' %}">
-                {% csrf_token %}
-                {{ form | crispy }}
-                <input type="submit" class="btn btn-primary mb-2" value="Register" />
-            </form>
-        </fieldset>
-    </div>
-
-    <div class="col-lg-3 col-md-3 mb-4">
-    </div>
-
 
 
     <!--logo SIIT-->
@@ -36,32 +34,6 @@
 
 </div>
 
-<!-- 3 picture down-->
-<div class="row">
-
-<div class="col-lg-4 col-md-6 mb-4">
-    <div class="view overlay zoom">
-        <img src="{% static 'images/barca.jpg'%}"
-             class="img-fluid " alt="zoom" >
-        <div class="mask flex-center waves-effect waves-light"></div>
-    </div>
 </div>
 
-<div class="col-lg-4 col-md-6 mb-4">
-    <div class="view overlay zoom">
-        <img src="{% static 'images/back.jpg'%}"
-             class="img-fluid " alt="zoom" >
-        <div class="mask flex-center waves-effect waves-light"></div>
-    </div>
-</div>
-
-<div class="col-lg-4 col-md-6 mb-4">
-    <div class="view overlay zoom">
-        <img src="{% static 'images/barca2.jpg'%}"
-             class="img-fluid " alt="zoom" >
-        <div class="mask flex-center waves-effect waves-light"></div>
-    </div>
-</div>
-
-</div>
 {% endblock homepage %}

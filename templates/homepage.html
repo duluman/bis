@@ -19,44 +19,8 @@
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet"  href="{% static 'style/bootstrap.min.css' %}">
   <link rel="stylesheet" href="{% static 'style/mdb.lite.css' %}">
-    <link rel="stylesheet" href="{% static 'style/style.css' %}">
-<style>
+    <link rel="stylesheet" href="{% static 'style/style2.css' %}">
 
-  html,
-  body,
-  header,
-  .view {
-    height: 100%;
-  }
-
-  @media (max-width: 740px) {
-    html,
-    body,
-    header,
-    .view {
-      height: 100vh;
-    }
-  }
-
-  .top-nav-collapse {
-    background-color: #82b1ff !important;
-  }
-
-  .navbar:not(.top-nav-collapse) {
-    background: transparent !important;
-  }
-
-  @media (max-width: 991px) {
-   .navbar:not(.top-nav-collapse) {
-    background: #82b1ff !important;
-   }
-  }
-
-  h5 {
-    letter-spacing: 3px;
-  }
-
-</style>
 </head>
      {% include 'snippets/nav_bar_snippet2.html' %}
 
@@ -64,26 +28,7 @@
  {% block homepage %}
     <!-- Main navigation -->
  <br><br>
- <div class="mask rgba-gradient d-flex justify-content-center align-items-center">
-                <!-- Content -->
-                <div class="container px-md-3 px-sm-0">
-                    <!--Grid row-->
-                    <div class="row wow fadeIn">
-                        <!--Grid column-->
-                        <div class="col-md-12 mb-4 white-text text-center wow fadeIn ">
-                            <p class="display-6 font-weight-bold white-text mb-0 pt-md-5 pt-5">PASIONAT DE REZULTATE</p>
-                            <hr class="hr-light my-4 w-75">
-                            <h4 class="subtext-header mt-2 mb-4">...</h4>
-                            <a href="{% url 'users:contact' %}" class="btn btn-rounded btn-outline-white">
-                                <i class="fa fa-envelope"></i> Contacteaza-ma
-                            </a>
-                        </div>
-                        <!--Grid column-->
-                    </div>
-                    <!--Grid row-->
-                </div>
-                <!-- Content -->
-            </div>
+
 
 
   <div class="view jarallax" data-jarallax='{"speed": 0.01}' style="background-image: url('https://mdbootstrap.com/img/Photos/Others/images/76.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
@@ -120,104 +65,9 @@
     <main>
 
         <!--Section: about-->
-        <section id="about" class="py-5">
 
-            <!-- Container -->
-            <div class="container">
-                <!-- Section heading -->
-                <h2 class="h1-responsive font-weight-bold text-center mb-5">Why is it so great?</h2>
-                <!-- Section description -->
-                <p class="lead grey-text text-center w-responsive mx-auto mb-5">Lorem ipsum dolor sit amet,
-                    consectetur
-                    adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-                    ad
-                    minim veniam.</p>
 
-                <!-- Grid row -->
-                <div class="row">
 
-                    <!-- Grid column -->
-                    <div class="col-lg-5 text-center text-lg-left">
-                        <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/screens-section.jpg" alt="Sample image">
-                    </div>
-                    <!-- Grid column -->
-
-                    <!-- Grid column -->
-                    <div class="col-lg-7">
-
-                        <!-- Grid row -->
-                        <div class="row mb-3">
-
-                            <!-- Grid column -->
-                            <div class="col-1">
-                                <i class="fa fa-mail-forward fa-lg purple-text"></i>
-                            </div>
-                            <!-- Grid column -->
-
-                            <!-- Grid column -->
-                            <div class="col-xl-10 col-md-11 col-10">
-                                <h5 class="font-weight-bold mb-3">Safety</h5>
-                                <p class="grey-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit enim ad
-                                    minima veniam, quis nostrum exercitationem ullam. Reprehenderit maiores aperiam
-                                    assumenda deleniti hic.</p>
-                            </div>
-                            <!-- Grid column -->
-
-                        </div>
-                        <!-- Grid row -->
-
-                        <!-- Grid row -->
-                        <div class="row mb-3">
-
-                            <!-- Grid column -->
-                            <div class="col-1">
-                                <i class="fa fa-mail-forward fa-lg purple-text"></i>
-                            </div>
-                            <!-- Grid column -->
-
-                            <!-- Grid column -->
-                            <div class="col-xl-10 col-md-11 col-10">
-                                <h5 class="font-weight-bold mb-3">Technology</h5>
-                                <p class="grey-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit enim ad
-                                    minima veniam, quis nostrum exercitationem ullam. Reprehenderit maiores aperiam
-                                    assumenda deleniti hic.</p>
-                            </div>
-                            <!-- Grid column -->
-
-                        </div>
-                        <!-- Grid row -->
-
-                        <!--Grid row-->
-                        <div class="row">
-
-                            <!-- Grid column -->
-                            <div class="col-1">
-                                <i class="fa fa-mail-forward fa-lg purple-text"></i>
-                            </div>
-                            <!-- Grid column -->
-
-                            <!-- Grid column -->
-                            <div class="col-xl-10 col-md-11 col-10">
-                                <h5 class="font-weight-bold mb-3">Finance</h5>
-                                <p class="grey-text mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit enim
-                                    ad minima veniam, quis nostrum exercitationem ullam. Reprehenderit maiores aperiam
-                                    assumenda deleniti hic.</p>
-                            </div>
-                            <!-- Grid column -->
-
-                        </div>
-                        <!--Grid row-->
-
-                    </div>
-                    <!--Grid column-->
-
-                </div>
-                <!-- Grid row -->
-
-            </div>
-            <!-- Container -->
-
-        </section>
         <!--Section: about-->
 
         <!--Section: projects-->

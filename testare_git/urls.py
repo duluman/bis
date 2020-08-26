@@ -41,8 +41,13 @@ urlpatterns = [
     path('gratitude/', include("gratitude.urls")),
     path('direction/', include("direction.urls")),
     path('events/', include("event.urls")),
-    path('resource/text/', include("text.urls")),
-    path('resource/audio/', include("audio.urls")),
+    path('resources/text/', include("text.urls")),
+    path('resources/audio/', include("audio.urls")),
+    path('resources/video/', include("video.urls")),
+    path('resources/interviews/', include("interview.urls")),
+    path('resources/tools/', include("tool.urls")),
+    path('resources/books/', include("book.urls")),
+    path('search/', include("search.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 
