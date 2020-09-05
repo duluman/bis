@@ -1,0 +1,30 @@
+{% extends "homepage.html" %}
+{% load static %}
+
+{% block homepage %}
+<br>
+<br>
+<br>
+<div class="container">
+<h1> Multiple books order </h1>
+
+<h3> {{ note }} </h3>
+
+
+<form action="{% url 'shop:books' %}" method="post">
+    {% csrf_token %}
+
+    {{ formset.management_form }}
+
+    {% for form in formset %}
+        {{ form }}
+    <br>
+
+    {% endfor%}
+    <input type="submit" value="Submit">
+
+</form>
+<br>
+<a href="{% url 'shop:order' %}"> back</a>
+    </div>
+{% endblock homepage %}

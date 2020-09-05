@@ -25,25 +25,28 @@ class ProfessionalBackground(models.Model):
         return self.title
 
 
+class BestFeatureCounterTitle(models.Model):
+    title = models.CharField(max_length=255, default=None, blank=True)
+
+    def __str__(self):
+        return self.title
+
+
 class BestFeatureCounter(models.Model):
 
     title = models.CharField(max_length=255, default=None)
     ICON_CHOICES = [
                     ("heart", "heart"),
                     ("bicycle", "bicycle"),
-                    ("lightning", "bolt"),
                     ("bug", "bug"),
                     ("bell", "bell"),
                     ("birthday-cake", "birthday-cake"),
                     ("gift", "gift"),
                     ("magic", "magic"),
-                    ("accusoft", "accusoft"),
-                    ("artstation", "artstation"),
                     ("award", "award"),
                     ("balance-scale", "balance-scale"),
                     ("battery-full", "battery-full"),
                     ("bible", "bible"),
-                    ("blogger", "blogger"),
                     ("book", "book"),
                     ("brain", "brain"),
                     ("camera-retro", "camera-retro"),
@@ -57,27 +60,24 @@ class BestFeatureCounter(models.Model):
                     ("dog", "dog"),
                     ("dove", "dove"),
                     ("dragon", "dragon"),
-                    ("envira", "envira"),
                     ("envelope-open-text", "envelope-open-text"),
                     ("eye", "eye"),
                     ("feather-alt", "feather-alt"),
                     ("fighter-jet", "fighter-jet"),
                     ("fire", "fire"),
-                    ("firs-aid", "first-aid"),
                     ("fish", "fish"),
                     ("flag", "flag"),
-                    ("diamant", "gem"),
+                    ("gem", "gem"),
                     ("gifts", "gifts"),
                     ("globe", "globe"),
                     ("graduation-cap", "graduation-cap"),
-                    ("gravity", "grav"),
                     ("smile face", "grin"),
-                    ("smile face 2", "grin-alt"),
-                    ("smile face star", "grin-stars"),
-                    ("smile face hearts", "grin-hearts"),
-                    ("smile face wink", "grin-wink"),
-                    ("smile face tears", "grin-tears"),
-                    ("grip fire", "gripfire"),
+                    ("grin-alt", "grin-alt"),
+                    ("grin-stars", "grin-stars"),
+                    ("grin-hearts", "grin-hearts"),
+                    ("grin-wink", "grin-wink"),
+                    ("grin-tears", "grin-tears"),
+                    ("blog", "blog"),
                     ("guitar", "guitar"),
                     ("home", "home"),
                     ("handshake", "handshake"),
@@ -91,13 +91,13 @@ class BestFeatureCounter(models.Model):
                     ("music", "music"),
                     ("pencil-alt", "pencil-alt"),
                     ("atom", "react"),
-                    ("pergament", "scroll"),
-                    ("diamond 2", "sketch"),
+                    ("scroll", "scroll"),
+                    ("adjust", "adjust"),
                     ("snowflake", "snowflake"),
                     ("spa", "spa"),
                     ("star", "star"),
                     ("store-alt", "store-alt"),
-                    ("pro", "themeco"),
+                    ("tools", "tools"),
                     ("trophy", "trophy"),
                     ("umbrella", "umbrella"),
                     ("umbrella-beach", "umbrella-beach"),
@@ -129,11 +129,11 @@ class BestFeatureCounter(models.Model):
     COLOR_CHOICES = [("cyan", "cyan"),
                      ("indigo", "indigo"),
                      ("blue", "blue"),
-                     ("blue-violet", "blue-violet"),
                      ("red", "red"),
                      ("green", "green"),
                      ("amber", "amber"),
                      ("pink", "pink"),
+                     ("white", "white"),
                      ("black", "black")]
 
     color = models.CharField(

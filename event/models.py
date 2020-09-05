@@ -9,6 +9,8 @@ class EventModel(models.Model):
     picture = models.ImageField(upload_to='event/', blank=True, null=True)
     youtube = models.CharField(max_length=255, default=None, blank=True)
     date_of_post = models.DateTimeField(default=timezone.now)
+    link_title = models.CharField(max_length=255, default=None, blank=True)
+    link = models.CharField(max_length=255, default=None, blank=True)
 
     class Meta:
         ordering = ['-date_of_post']

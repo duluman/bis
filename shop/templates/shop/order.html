@@ -1,0 +1,31 @@
+{% extends "homepage.html" %}
+{% load static %}
+
+{% block homepage %}
+<br>
+<br>
+<br>
+<div class="container">
+<h1> Order page </h1>
+<p> {{ note }} </p>
+<a href="{% url 'shop:shop' %}" > Back </a>
+    <form enctype="multipart/form-data" action="{% url 'shop:order' %}" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <input type="submit" value="Submit">
+
+
+
+    </form>
+
+    <br>
+Want more books?
+    <form action="{% url 'shop:books' %}">
+        {% csrf_token %}
+        {{multiple_form}}
+        <input type="submit" value="Submit">
+    </form>
+</div>
+
+{% endblock homepage %}

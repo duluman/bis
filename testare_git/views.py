@@ -1,5 +1,6 @@
 
 from django.shortcuts import render
+from a_home_page.models import HomePageTitleTop
 
 
 def home_page(request):
@@ -11,6 +12,10 @@ def read_more(request):
 
 
 def creative_page(request):
-    return render(request, "homepage.html")
+    title_list = HomePageTitleTop.objects.all()
+    context = {
+        "title_list": title_list
+    }
+    return render(request, "homepage.html", context)
 
 

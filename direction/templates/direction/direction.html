@@ -20,7 +20,7 @@
             <h2 class="display-4 mb-0 pt-md-5 pt-5  font-weight-bold wow fadeInDown" data-wow-delay="3s">{{ element.title }}
 
             </h2>
-            <h5 class="text-uppercase pt-md-5 pt-sm-2 pt-5 pb-md-5 pb-sm-3 pb-5  font-weight-bold wow fadeInDown"
+            <h5 class="text pt-md-5 pt-sm-2 pt-5 pb-md-5 pb-sm-3 pb-5  font-weight-bold wow fadeInDown"
               data-wow-delay="2s">{{ element.subtitle }}</h5>
 
           </div>
@@ -92,6 +92,55 @@
     <br><hr><br>
           <!--Grid row-->
  {% endfor %}
+</div>
+
+<div class="container my-5">
+
+
+  <!--Section: Content-->
+  <section class="p-5 z-depth-1">
+     {% if title_list %}
+    {% for title in title_list %}
+    <h3 class="text-center font-weight-bold mb-5">{{ title.title }}</h3>
+    {% endfor %}
+     {% endif %}
+    <div class="row d-flex justify-content-center">
+      {% for feature in feature_list %}
+      <div class="col-md-6 col-lg-6 mb-4 text-center">
+        <h4 class="h1 font-weight-normal mb-3">
+           <i class="fa fa-{{ feature.icon }} fa-{{ feature.size }} {{ feature.color }}-text"></i>
+          <span class="d-inline-block count{{ forloop.counter0 }}" data-from="0" data-to="{{ feature.data_max }}" data-time="{{ feature.data_time_speed }}"></span>
+        </h4>
+        <p class="font-weight-normal text-muted">{{ feature.title }}</p>
+      </div>
+      {% endfor %}
+
+    </div>
+
+  </section>
+  <!--Section: Content-->
+
+
+</div>
+
+<div class="container my-5">
+  {% if title_list %}
+   {% for title in title_list %}
+    <h3 class="text-center font-weight-bold mb-5">{{ title.title }}</h3>
+    {% endfor %}
+  {% endif %}
+<div class="row d-flex justify-content-center">
+
+  {% for feature in feature_list %}
+<div class="col-md-6 col-lg-6 mb-4 text-center">
+  <i class="fa fa-cog fa-spin fa-3x fa-fw"></i>
+  <h6 class="h1 font-weight-normal mb-3"><span class="d-inline-block count{{ forloop.counter0 }}" data-from="0" data-to="{{ feature.data_max }}" data-time="{{ feature.data_time_speed }}"></span>
+</h6>
+    <p class="h6 font-weight-normal text-muted">{{ feature.title }}</p>
+
+                                  </div>
+  {% endfor %}
+                          </div>
 </div>
 
 {% endblock homepage %}

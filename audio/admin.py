@@ -1,10 +1,15 @@
 from django.contrib import admin
-from audio.models import AudioModel, AudioTitleTop
+from audio.models import AudioModel, AudioTitleTop, AudioModelSound
 # Register your models here.
 
 
-class AudioModelAdmin(admin.ModelAdmin):
+class AudioTabularLine(admin.TabularInline):
+    model = AudioModelSound
+    extra = 0
 
+
+class AudioModelAdmin(admin.ModelAdmin):
+    inlines = [AudioTabularLine]
     list_display = ['title', 'author']
 
     class Meta:

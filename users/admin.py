@@ -4,12 +4,13 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.forms import UserChangeForm, UserCreationForm
 from django.utils.translation import gettext_lazy as _
-from users.models import MyUser, Profile
+from users.models import MyUser, Profile, ContactApp
 from activation.signals import set_inactive_user
 from django.conf import settings
 # Register your models here.
 
 admin.site.register(Profile)
+admin.site.register(ContactApp)
 
 
 class MyUserCreationForm(UserCreationForm):

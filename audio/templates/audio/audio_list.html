@@ -20,7 +20,7 @@
             <h2 class="display-4 mb-0 pt-md-5 pt-5  font-weight-bold wow fadeInDown" data-wow-delay="3s">{{ element.title }}
 
             </h2>
-            <h5 class="text-uppercase pt-md-5 pt-sm-2 pt-5 pb-md-5 pb-sm-3 pb-5  font-weight-bold wow fadeInDown"
+            <h5 class="text pt-md-5 pt-sm-2 pt-5 pb-md-5 pb-sm-3 pb-5  font-weight-bold wow fadeInDown"
               data-wow-delay="2s">{{ element.subtitle }}</h5>
 
           </div>
@@ -55,6 +55,15 @@
            <audio controls style="padding-top: 2%;">
                 <source src="{{ MEDIA_URL }}{{item.audio_file}}" type="audio/mp3">
             </audio>
+
+          {% for element in sounds %}
+            {% if element.connection_id == item.id %}
+              <p class="font-weight-bold my-4 pb-2">{{ element.audio_name }}</p>
+              <audio controls style="padding-top: 2%;">
+                <source src="{{ MEDIA_URL }}{{ element.audio }}" type="audio/mp3">
+            </audio>
+            {% endif%}
+          {% endfor %}
 
         </div>
       </div>

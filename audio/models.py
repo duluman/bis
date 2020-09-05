@@ -15,6 +15,16 @@ class AudioModel(models.Model):
         return self.title
 
 
+class AudioModelSound(models.Model):
+    connection = models.ForeignKey(AudioModel, on_delete=models.CASCADE, default=None)
+    audio_name = models.CharField(max_length=355, default=None, blank=True)
+    audio = models.FileField(upload_to='audio/')
+    body = models.TextField(default=None, blank=True)
+
+    def __str__(self):
+        return self.audio_name
+
+
 class AudioTitleTop(models.Model):
     title = models.CharField(max_length=255, default=None, blank=True)
     subtitle = models.CharField(max_length=255, default=None, blank=True)
