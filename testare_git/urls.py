@@ -48,6 +48,9 @@ urlpatterns = [
     path('resources/tools/', include("tool.urls")),
     path('resources/books/', include("book.urls")),
     path('search/', include("search.urls")),
+    path('linkedin/', include("linkedin.urls")),
+    path('shop/', include("shop.urls")),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 

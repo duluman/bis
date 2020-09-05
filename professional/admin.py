@@ -1,5 +1,5 @@
 from django.contrib import admin
-from professional.models import ProfessionalDevelopment, ProfessionalBackground, BestFeatureCounter
+from professional.models import ProfessionalDevelopment, ProfessionalBackground, BestFeatureCounter, BestFeatureCounterTitle
 # Register your models here.
 
 
@@ -20,4 +20,5 @@ class ProfessionalDevelopmentAdmin(admin.ModelAdmin):
 admin.site.register(ProfessionalDevelopment, ProfessionalDevelopmentAdmin)
 admin.site.register(ProfessionalBackground)
 admin.site.register(BestFeatureCounter)
+admin.site.register(BestFeatureCounterTitle)
 

@@ -13,6 +13,7 @@ from users.forms import ContactForm
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib import messages
 from django.contrib.auth import update_session_auth_hash
+from users.models import ContactApp
 from django import forms
 from django.utils.translation import gettext_lazy as _
 
@@ -122,6 +123,7 @@ def register(request):
 
 
 def contact_view(request):
+    contact_list = ContactApp.objects.all()
     if request.method == 'POST':
 
         form = ContactForm(request.POST)
@@ -162,7 +164,11 @@ def contact_view(request):
     else:
         form = ContactForm()
 
-    return render(request, "users/contact.html", {'form': form})
+    context = {
+        'form': form,
+        'contact_list': contact_list}
+
+    return render(request, "users/contact.html", context)
 
 
 @login_required

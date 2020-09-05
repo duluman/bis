@@ -5,7 +5,8 @@
 
 <br>
 <br>
-<h3 class="font-weight-bold my-4 pb-2 text-center" > Trăiesc să transform imposibilul în posibil. </h3>
+{% for element in contact_list %}
+<h3 class="font-weight-bold my-4 pb-2 text-center" > {{ element.title }} </h3>
 <!-- Form contact -->
 
 
@@ -32,7 +33,7 @@
             <div class="card-body form">
 
               <!-- Header -->
-              <h4 class="font-weight-bold dark-grey-text mt-4"><i class="fas fa-envelope pr-2 mr-1"></i>Te invit sa stam de vorba</h4>
+              <h4 class="font-weight-bold dark-grey-text mt-4"><i class="fas fa-envelope pr-2 mr-1"></i>{{ element.envelope_message }}</h4>
               <form method="post" action="{% url 'users:contact' %}" >
                     {% csrf_token %}
               <!-- Grid row -->
@@ -128,39 +129,46 @@
 
             <div class="card-body contact text-center h-100 dark-grey-text">
 
-              <h4 class="font-weight-bold my-4 pb-2 ">Informatii de contact</h4>
+              <h4 class="font-weight-bold my-4 pb-2 ">{{ element.contact_info }}</h4>
 
 
               <div style="text-align: left">
 
-                  <p><i class="fas fa-map-marker-alt pr-2"></i>Cugir, Romania</p>
+                  <p><i class="fas fa-map-marker-alt pr-2"></i>{{ element.location }}</p>
 
 
-                  <p><i class="fas fa-phone pr-2"></i>0769370793</p>
+                  <p><i class="fas fa-phone pr-2"></i>{{ element.phone }}</p>
 
 
                   <p><i class="fas fa-envelope pr-2">
 
-                  </i>boanca_ionut_silviu@yahoo.com</p>
+                  </i>{{ element.email }}</p>
 
               </div>
               <hr class="hr-light my-4">
               <ul class="list-inline text-center list-unstyled">
                 <li class="list-inline-item">
-                  <a class="p-2 fa-lg tw-ic">
-                    <i class="fab fa-twitter"></i>
+                  <a class="p-2 fa-lg tw-ic" href="{{ element.link_facebook }}" target="_blank">
+                    <i class="fab fa-facebook indigo-text"></i>
                   </a>
                 </li>
                 <li class="list-inline-item">
-                  <a class="p-2 fa-lg li-ic">
-                    <i class="fab fa-linkedin-in"> </i>
+                  <a class="p-2 fa-lg tw-ic" href="{{ element.link_youtube }}" target="_blank">
+                    <i class="fab fa-youtube red-text"></i>
                   </a>
                 </li>
                 <li class="list-inline-item">
-                  <a class="p-2 fa-lg ins-ic">
+                  <a class="p-2 fa-lg li-ic" href="{{ element.link_linkedin }}" target="_blank">
+                    <i class="fab fa-linkedin-in blue-text"> </i>
+                  </a>
+                </li>
+                {% if element.link_instagram %}
+                <li class="list-inline-item">
+                  <a class="p-2 fa-lg ins-ic" href="{{ element.link_instagram }}" target="_blank">
                     <i class="fab fa-instagram"> </i>
                   </a>
                 </li>
+                {% endif %}
               </ul>
 
             </div>
@@ -179,5 +187,5 @@
 
 
   </div>
-
+{% endfor %}
 {% endblock homepage %}

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from direction.models import Direction, DirectionTitleTop
+from direction.models import Direction, DirectionTitleTop, BestFeatureCounter, BestFeatureCounterTitle
 # Register your models here.
 
 
@@ -13,3 +13,5 @@ class DirectionAdmin(admin.ModelAdmin):
 
 admin.site.register(Direction, DirectionAdmin)
 admin.site.register(DirectionTitleTop)
+admin.site.register(BestFeatureCounter)
+admin.site.register(BestFeatureCounterTitle)

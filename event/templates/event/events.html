@@ -18,7 +18,7 @@
             <h1 class="display-4 mb-0 pt-md-5 pt-5 white-text font-weight-bold wow fadeInDown" data-wow-delay="3s">{{ element.title }}
 <!--              <a class="indigo-text font-weight-bold">IONUT SILVIU</a>-->
             </h1>
-            <h5 class="text-uppercase pt-md-5 pt-sm-2 pt-5 pb-md-5 pb-sm-3 pb-5 white-text font-weight-bold wow fadeInDown"
+            <h5 class="text pt-md-5 pt-sm-2 pt-5 pb-md-5 pb-sm-3 pb-5 white-text font-weight-bold wow fadeInDown"
               data-wow-delay="2s">{{ element.subtitle }}</h5>
 
           </div>
@@ -59,7 +59,11 @@
             </div>
           <div class="card-body">
             <p class="font-weight-bold my-2">{{ element.title }}</p>
-            <p class="text-muted">{{ element.body }}</p>
+            <p class="text-muted" style="text-align:justify">{{ element.body }}</p>
+            {% if element.link %}
+            <p><a target="_blank" href="{{ element.link }}"> {{ element.link_title }}</a> </p>
+            {% endif %}
+
           </div>
         </div>
       </div>

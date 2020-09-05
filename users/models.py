@@ -54,4 +54,20 @@ class Profile(models.Model):
         return str(self.user)
 
 
+class ContactApp(models.Model):
+    title = models.CharField(max_length=255, default="Traiesc sa transform imposibilul in posibil")
+    envelope_message = models.CharField(max_length=255, default="Te invit sa stam de vorba")
+    contact_info = models.CharField(max_length=255, default="Informatii de contact")
+    location = models.CharField(max_length=255, default="Cugir, Romania")
+    phone = models.CharField(max_length=255, default="0769370793")
+    email = models.CharField(max_length=255, default="boanca_ionut_silviu@yahoo.com")
+    link_facebook = models.CharField(max_length=255, default=None, blank=True)
+    link_youtube = models.CharField(max_length=255, default=None, blank=True)
+    link_linkedin = models.CharField(max_length=255, default=None, blank=True)
+    link_instagram = models.CharField(max_length=255, default=None, blank=True)
+
+    def __str__(self):
+        return self.title
+
+
 
