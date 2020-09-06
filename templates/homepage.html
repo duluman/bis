@@ -40,7 +40,7 @@
 
   <div class="view jarallax" data-jarallax='{"speed": 0.01}' style="background-image: url('{{ MEDIA_URL }}{{ element.picture }}'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
     <!-- Mask & flexbox options-->
-    <div class="mask rgba-white-light d-flex justify-content-center align-items-center">
+    <div class="mask {{ element.mask_overlay }} d-flex justify-content-center align-items-center">
       <!-- Content -->
       <div class="container">
         <!--Grid row-->

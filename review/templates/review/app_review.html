@@ -62,13 +62,17 @@
              <i class="fas fa-quote-right"></i>
               </p>
             </div>
-
+              {% if customer_review.youtube_link %}
+              <a href="{{ customer_review.youtube_link }}" target="_blank"> {{ customer_review.youtube_title }} </a>
+                {% endif %}
           </div>
         </div>
       </div>
  {% endfor  %}
     </div>
   </section>
+
+
   <div class="col-lg-2 col-md-12 mb-4">
         <div class="card-body">
 
@@ -81,7 +85,19 @@
 
 </div>
 
+{% for customer_review in review_list %}
+{% if customer_review.youtube_link %}
+<div class="container">
+    <div class="embed-responsive embed-responsive-16by9">
 
+                    <iframe class="embed-responsive-item"  src="https://www.youtube.com/embed/{{ customer_review.youtube_link|cut:'https://www.youtube.com/watch?v=' }}"  allowfullscreen>
+                    </iframe>
+
+
+            </div>
+    </div>
+{% endif %}
+            {% endfor %}
 
 
 {% endblock homepage %}

@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from text.models import TextModel, BodyTextModel, TextPageBackground
+from text.models import TextModel, BodyTextModel, TextPageBackground, PdfUploadModelForText
 
 # Create your views here.
 
@@ -7,10 +7,12 @@ from text.models import TextModel, BodyTextModel, TextPageBackground
 def text_view(request):
     text_list = TextModel.objects.all()
     background_list = TextPageBackground.objects.all()
+    pdf_text=PdfUploadModelForText.objects.all()
 
     context = {
         'text_list_template': text_list,
-        'background_list_template': background_list}
+        'background_list_template': background_list,
+        'pdf_text': pdf_text}
 
     return render(request, 'text/text.html', context)
 
@@ -25,6 +27,15 @@ def details(request, textmodel_id):
     }
 
     return render(request, "text/details.html", context)
+
+
+def details_pdf_text(request, id):
+    pdf_text = PdfUploadModelForText.objects.filter(id=id)
+
+    context = {
+        "pdf_text": pdf_text}
+
+    return render(request, "text/pdf_details_text.html", context)
 
 
 # am eliminat background pentru pagina de detalii

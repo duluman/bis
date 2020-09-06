@@ -53,6 +53,8 @@ class HomePageTitleTop(models.Model):
         blank=True,
         null=True
     )
+
+    mask_overlay = models.CharField(max_length=255, default='rgba-white-light', blank=True, null=True)
     picture = models.ImageField(upload_to='homepage/', blank=True, null=True)
 
     first_button = models.CharField(max_length=255, default='Testimoniale')

@@ -1,0 +1,52 @@
+{% extends "homepage.html" %}
+{% load static %}
+
+{% block homepage %}
+
+<br><br><br>
+
+
+{% for element in pdf_text %}
+<div class="container my-5">
+        <!-- Section heading -->
+        <!-- Grid row -->
+        <div class="row">
+            <!-- Grid column -->
+            <div class="col-lg-3 text-center text-lg-left">
+                <img class="img-fluid" src="{{ MEDIA_URL }}{{ element.picture }}" alt="{{ element.title }}">
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-lg-9">
+                <h2 class="h1-responsive font-weight-bold text-center mb-5">{{ element.title }}</h2>
+        <!-- Section description -->
+                <h5 class="lead grey-text text-center w-responsive mx-auto mb-5">{{ element.author }}</h5>
+
+             </div>
+            <!--Grid column-->
+
+        </div>
+        <!-- Grid row -->
+
+    </div>
+    <!-- Container -->
+
+<div class="container">
+<div class="embed-responsive embed-responsive-1by1">
+        <iframe class="embed-responsive-item" src="{{ element.pdf_url }}" allowfullscreen></iframe>
+
+</div>
+
+</div>
+
+
+{% endfor %}
+<div  class="container-fluid d-flex align-items-center justify-content-center">
+        <a href="{% url 'text:text' %}" class="btn" style="font-weight: bold;">Inapoi</a>
+
+    </div>
+
+
+
+{% endblock homepage %}

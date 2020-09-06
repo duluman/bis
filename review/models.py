@@ -10,6 +10,8 @@ class AppReview(models.Model):
                              on_delete=models.CASCADE)
     comment = models.TextField(default=None)
     profession = models.CharField(max_length=255, blank=True, null=True)
+    youtube_title = models.CharField(max_length=255, blank=True, null=True, default='Click pentru video')
+    youtube_link = models.CharField(max_length=255, blank=True, null=True)
     date = models.DateTimeField(default=timezone.now)
 
     def __str__(self):

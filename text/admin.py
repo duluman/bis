@@ -1,5 +1,5 @@
 from django.contrib import admin
-from text.models import TextModel, BodyTextModel, TextPageBackground
+from text.models import TextModel, BodyTextModel, TextPageBackground, PdfUploadModelForText
 # Register your models here.
 
 
@@ -21,3 +21,5 @@ class TextAdmin(admin.ModelAdmin):
 
 
 admin.site.register(TextPageBackground)
+
+admin.site.register(PdfUploadModelForText)

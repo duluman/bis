@@ -8,19 +8,19 @@
 {% for element in background_list_template %}
 
 {% if element.picture %}
-  <div class="view jarallax" data-jarallax='{"speed": 0.01}' style="background-image: url('{{ MEDIA_URL }}{{ element.picture }}'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+    <div class="view jarallax" data-jarallax='{"speed": 0.01}' style="background-image: url('{{ MEDIA_URL }}{{ element.picture }}'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
     <!-- Mask & flexbox options-->
-    <div class="mask  d-flex justify-content-center align-items-center">
+    <div class="mask {{ element.mask_overlay }} d-flex justify-content-center align-items-center">
       <!-- Content -->
       <div class="container">
         <!--Grid row-->
         <div class="row">
           <!--Grid column-->
-          <div class="col-md-12 white-text text-center">
-            <h2 class="display-4 mb-0 pt-md-5 pt-5  font-weight-bold wow fadeInDown" data-wow-delay="3s">{{ element.title }}
+          <div class="col-md-12  text-center">
+            <h1 class="display-{{ element.title_size }} mb-0 pt-md-5 pt-5 {{ element.title_color }}-text font-weight-bold wow fadeInDown" data-wow-delay="3s">{{ element.title }}
 
-            </h2>
-            <h5 class="text pt-md-5 pt-sm-2 pt-5 pb-md-5 pb-sm-3 pb-5  font-weight-bold wow fadeInDown"
+            </h1>
+            <h5 class="display-{{ element.subtitle_size }} text pt-md-5 pt-sm-2 pt-5 pb-md-5 pb-sm-3 pb-5 {{ element.subtitle_color }}-text font-weight-bold wow fadeInDown"
               data-wow-delay="2s">{{ element.subtitle }}</h5>
 
           </div>

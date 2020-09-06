@@ -1,5 +1,5 @@
 from django.contrib import admin
-from book.models import BookModel, BodyTextModel
+from book.models import BookModel, BodyTextModel, TitleBookBackground, PdfUploadModel
 # Register your models here.
 
 
@@ -19,5 +19,8 @@ class TextAdmin(admin.ModelAdmin):
     class Meta:
         model = BookModel
 
+
+admin.site.register(TitleBookBackground)
+admin.site.register(PdfUploadModel)
 
 
