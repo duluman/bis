@@ -1,0 +1,103 @@
+{% extends "en_homepage.html" %}
+{% load static %}
+{% block en_homepage %}
+<br>
+<br>
+<br>
+<div class="container">
+{% if request.user.is_authenticated %}
+    <a href="{% url 'review:en_add_review' %}" >
+        <p class="font-weight-bold"><i class="fas fa-user blue-text mr-2"> </i> Add a review </p> </a>
+
+{% else %}
+
+    <p class="font-weight-bold"> To add a review you must authenticate <a href="{% url 'users:login' %}"> here </a>.</p>
+    <p class="font-weight-bold"> If you dont have an account you can register  <a href="{% url 'users:register' %}"> here </a>.</p>
+
+{%  endif %}
+    <br>
+
+
+
+  <section class="p-md-5 mx-md-5 text-center text-lg-left">
+    <div class="row">
+        {% for customer_review in review_list %}
+      <div class="col-lg-6 px-3 mb-3 d-flex align-item-stretch">
+        <div class="card">
+          <div class="card-body m-1">
+            <div class="row mb-4">
+              <div class="col-lg-4 d-flex mb-2 align-items-center">
+                <div
+                  class="avatar w-100 white d-flex justify-content-center align-items-center"
+                >
+                    {% if customer_review.name.profile.avatar %}
+                  <img
+                    src="{{ MEDIA_URL }}{{ customer_review.name.profile.avatar }}"
+                    class="img-fluid z-depth-1"
+                    alt="avatar"
+                  />
+                    {% else %}
+                    <img
+                    src="https://banner2.cleanpng.com/20180802/icj/kisspng-user-profile-default-computer-icons-network-video-the-foot-problems-of-the-disinall-foot-care-founde-5b6346121ec769.0929994515332326581261.jpg"
+                    class="img-fluid z-depth-1"
+                    alt="avatar"
+                  />
+
+                    {% endif %}
+                </div>
+              </div>
+              <div
+                class="col-lg-8 text-muted d-flex flex-column justify-content-end pt-2"
+              >
+                <p class="mb-1"><strong>{{ customer_review.name.first_name }} {{ customer_review.name.last_name }}</strong></p>
+                <p class="mb-1"><i>{{ customer_review.profession }}</i></p>
+              </div>
+            </div>
+            <hr />
+              <div class="d-flex justify-content-end">
+              <p class="text-muted card-text mt-3 px-4 mb-2" >{{ customer_review.date }}</p></div>
+            <div class="row">
+              <p class="text-muted card-text mt-2 px-4 mb-2" style="text-align:justify">
+                <i class="fas fa-quote-left"></i> {{ customer_review.comment }}
+             <i class="fas fa-quote-right"></i>
+              </p>
+            </div>
+              {% if customer_review.youtube_link %}
+              <a href="{{ customer_review.youtube_link }}" target="_blank"> {{ customer_review.en_youtube_title }} </a>
+                {% endif %}
+          </div>
+        </div>
+      </div>
+ {% endfor  %}
+    </div>
+  </section>
+
+
+  <div class="col-lg-2 col-md-12 mb-4">
+        <div class="card-body">
+
+            <h3 class="fas mr-1 fa-user blue-text">  | {{ count_app }}</h3><br>
+               <h1>
+
+            </h1>
+        </div>
+    </div>
+
+</div>
+
+{% for customer_review in review_list %}
+{% if customer_review.youtube_link %}
+<div class="container">
+    <div class="embed-responsive embed-responsive-16by9">
+
+                    <iframe class="embed-responsive-item"  src="https://www.youtube.com/embed/{{ customer_review.youtube_link|cut:'https://www.youtube.com/watch?v=' }}"  allowfullscreen>
+                    </iframe>
+
+
+            </div>
+    </div>
+{% endif %}
+            {% endfor %}
+
+
+{% endblock en_homepage %}

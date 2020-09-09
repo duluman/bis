@@ -8,32 +8,32 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent" >
     <ul class="navbar-nav mr-auto" style="font-weight: bold">
       <li class="nav-item">
-        <a class="nav-link" href="{% url 'home' %}"><i class="fas fa-home mr-1 indigo-text" ></i>Acasa <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="{% url 'en_home' %}"><i class="fas fa-home mr-1 indigo-text" ></i>Home <span class="sr-only">(current)</span></a>
       </li>
 
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-         Despre mine
+         About me
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown" >
-          <a class="dropdown-item" href="{% url 'story:story' %}" style="font-weight: bold">Povestea mea</a>
-          <a class="dropdown-item" href="{% url 'personal:personal' %}" style="font-weight: bold">Dezvoltare personala</a>
-            <a class="dropdown-item" href="{% url 'professional:professional' %}" style="font-weight: bold">Dezvoltare profesionala</a>
-          <a class="dropdown-item" href="{% url 'gratitude:gratitude' %}" style="font-weight: bold">Multumiri si recunostinta</a>
+          <a class="dropdown-item" href="{% url 'story:en_story' %}" style="font-weight: bold">My Story</a>
+          <a class="dropdown-item" href="{% url 'personal:en_personal' %}" style="font-weight: bold">Personal Development</a>
+            <a class="dropdown-item" href="{% url 'professional:en_professional' %}" style="font-weight: bold">Professional Development</a>
+          <a class="dropdown-item" href="{% url 'gratitude:en_gratitude' %}" style="font-weight: bold">Thanks and Gratitude</a>
       <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="{% url 'review:app_review' %}" style="font-weight: bold">Testimoniale</a> </div>
+            <a class="dropdown-item" href="{% url 'review:en_app_review' %}" style="font-weight: bold">Review</a> </div>
       </li>
      <li class="nav-item">
-      <a class="nav-link"   href="{% url 'direction:direction' %}" style="font-weight: bold">Directie</a>
+      <a class="nav-link"   href="{% url 'direction:direction' %}" style="font-weight: bold">Direction</a>
   </li>
 
   <li class="nav-item ">
-      <a class="nav-link" href="{% url 'event:event' %}"style="font-weight: bold" >Evenimente</a>
+      <a class="nav-link" href="{% url 'event:event' %}"style="font-weight: bold" >Events</a>
   </li>
 
         <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-    aria-expanded="false">Resurse</a>
+    aria-expanded="false">Resources</a>
         <div class="dropdown-menu dropdown-secondary">
             <a class="dropdown-item" href="{% url 'text:text' %}" style="font-weight: bold">Text
                 <i class="fas fa-envelope green-text ml-4" style="text-align: right" ></i></a>
@@ -41,12 +41,12 @@
                 <i class="fas fa-music indigo-text ml-4" ></i></a>
             <a class="dropdown-item" href="{% url 'video:video' %}" style="font-weight: bold">Video
                 <i class="fas fa-video red-text ml-4" ></i></a>
-            <a class="dropdown-item" href="{% url 'interview:interview' %}" style="font-weight: bold">Interviuri
+            <a class="dropdown-item" href="{% url 'interview:interview' %}" style="font-weight: bold">Interview
                 <i class="fas fa-microphone amber-text ml-2" ></i></a>
-            <a class="dropdown-item" href="{% url 'tool:tool' %}" style="font-weight: bold">Unelte
+            <a class="dropdown-item" href="{% url 'tool:tool' %}" style="font-weight: bold">Tools
                 <i class="fas fa-tools dark-text ml-4" ></i></a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="{% url 'book:book' %}" style="font-weight: bold">Recomandari de carte
+            <a class="dropdown-item" href="{% url 'book:book' %}" style="font-weight: bold">Book recomandation
                 <i class="fas fa-book red-text ml-1" ></i></a>
         </div>
     </li>
@@ -64,7 +64,7 @@
             {% csrf_token %}
                 <div class="md-form my-0">
               <input type="text" name="search_for" value="{{ search_term }}"
-                     placeholder="cuvant cheie">
+                     placeholder="key word">
             <button class="btn btn-sm btn-outline-dark " type="submit"><i class="fas fa-search"></i></button>
                 </div>
         </form>
@@ -75,7 +75,7 @@
 
     <li class="nav-item">
         <a class="nav-link">
-        Salut, {{ user.first_name }}!
+        Hello, {{ user.first_name }}!
         </a>
     </li>
 
@@ -83,20 +83,20 @@
           <a class="nav-link" href="{% url 'users:logout' %}">Logout</a></li>
 
       <li class="nav-item  ">
-    <a class="nav-link" id="prof-tab"  href="{% url 'users:profile' %}" ><i class='fas fa-user  blue-text mr-1'></i>Profil</a>
+    <a class="nav-link" id="prof-tab"  href="{% url 'users:profile' %}" ><i class='fas fa-user  blue-text mr-1'></i>Profile</a>
   </li>
 
     {% else %}
 
     <li class="nav-item">
       <a class="nav-link " href="{% url 'users:login' %}">
-          <i class="fas fa-user blue-text mr-1" aria-hidden="true"></i>Autentificare</a>
+          <i class="fas fa-user blue-text mr-1" aria-hidden="true"></i>Login</a>
     </li>
 
     <li class="nav-item" style="font-weight: bold">
       <a class="nav-link" href="{% url 'users:register' %}">
           <i class="fas fa-gem red-text" ></i>
-              Inregistrare</a>
+              Register</a>
     </li>
 
 {% endif %}

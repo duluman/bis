@@ -11,6 +11,7 @@ class AppReview(models.Model):
     comment = models.TextField(default=None)
     profession = models.CharField(max_length=255, blank=True, null=True)
     youtube_title = models.CharField(max_length=255, blank=True, null=True, default='Click pentru video')
+    en_youtube_title = models.CharField(max_length=255, blank=True, null=True, default='Click here for the video')
     youtube_link = models.CharField(max_length=255, blank=True, null=True)
     date = models.DateTimeField(default=timezone.now)
 
