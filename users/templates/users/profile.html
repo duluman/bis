@@ -12,11 +12,6 @@
     <p> Nume: {{ user.last_name }}</p>
     <p> E-mail: {{ user.email }}</p>
 
-      <br>
-        <br>
-        {% if request.user.stripe_data.customer_id  %}
-    <a class="btn btn mb-2" href="{% url 'payments:view_cards' %}">My cards</a>
-        {% endif %}
     </div>
 
     <div class="col-md-4" >

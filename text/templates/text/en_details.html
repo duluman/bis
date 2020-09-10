@@ -1,0 +1,62 @@
+{% extends "en_homepage.html" %}
+{% load static %}
+
+{% block en_homepage %}
+
+<div class="row">
+    <div class="col-lg-4 col-md-6 mb-2"></div>
+{% for element in text_list_template %}
+<div class="col-lg-4 col-md-6 mb-2">
+
+    <div class="view overlay z-depth-3-half">
+
+        {% if element.picture %}
+
+            <img src="{{ MEDIA_URL }}{{ element.picture }}" class="img-fluid" alt="{{ element.title }}"/>
+            <div class="mask rgba-white-slight"></div>
+
+        {% endif %}
+         <h4 class="my-4 font-weight-bold" style="text-align:center">{{ element.title }}</h4>
+        <p style="text-align:justify"> {{ element.subtitle }} </p>
+
+    </div>
+
+</div>
+{% endfor %}
+</div>
+
+
+<div class="container my-5">
+
+    <div class="row">
+        {% for element in post_text_details %}
+        <!-- Grid column -->
+            <div class="col-md-8 col-xl-6">
+
+                <div class="card-body form">
+
+                    <div class="view overlay z-depth-3-half">
+
+                    {% if element.image %}
+
+                    <img src="{{ MEDIA_URL }}{{ element.image }}" class="img-fluid" alt=""/>
+                    <div class="mask rgba-white-slight"></div>
+                                        {% endif %}
+                    <div>
+                        <h4 class="my-4 font-weight-bold">{{ element.title }}</h4>
+                        <p style="text-align:justify"> {{ element.body }} </p>
+
+                    </div>
+                    </div>
+
+                 </div>
+            </div>
+        {% endfor %}
+    </div>
+    <div  class="container-fluid d-flex align-items-center justify-content-center">
+        <a href="{% url 'text:en_text' %}" class="btn" style="font-weight: bold;">Back</a>
+
+    </div>
+</div>
+
+{% endblock en_homepage %}

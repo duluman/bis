@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from text.models import TextModel, BodyTextModel, TextPageBackground
+from text.models import TextModel, BodyTextModel, TextPageBackground, PdfUploadModelForText
+from text.models import EnTextModel, EnBodyTextModel, EnTextPageBackground, EnPdfUploadModelForText
 
 # Create your views here.
 
@@ -7,24 +8,76 @@ from text.models import TextModel, BodyTextModel, TextPageBackground
 def text_view(request):
     text_list = TextModel.objects.all()
     background_list = TextPageBackground.objects.all()
+    pdf_text = PdfUploadModelForText.objects.all()
 
     context = {
         'text_list_template': text_list,
-        'background_list_template': background_list}
+        'background_list_template': background_list,
+        'pdf_text': pdf_text}
 
     return render(request, 'text/text.html', context)
 
 
 def details(request, textmodel_id):
+    text_list = TextModel.objects.filter(id=textmodel_id)
     post_text = BodyTextModel.objects.filter(heading_id=textmodel_id)
     background_list = TextModel.objects.filter(id=textmodel_id)
 
     context = {
         "post_text_details": post_text,
-        'background_list_template': background_list
+        'background_list_template': background_list,
+        'text_list_template': text_list,
     }
 
     return render(request, "text/details.html", context)
+
+
+def details_pdf_text(request, id):
+    pdf_text = PdfUploadModelForText.objects.filter(id=id)
+
+    context = {
+        "pdf_text": pdf_text}
+
+    return render(request, "text/pdf_details_text.html", context)
+
+
+# for the english version
+
+
+def en_text_view(request):
+    text_list = EnTextModel.objects.all()
+    background_list = EnTextPageBackground.objects.all()
+    pdf_text = EnPdfUploadModelForText.objects.all()
+
+    context = {
+        'text_list_template': text_list,
+        'background_list_template': background_list,
+        'pdf_text': pdf_text}
+
+    return render(request, 'text/en_text.html', context)
+
+
+def en_details(request, entextmodel_id):
+    text_list = EnTextModel.objects.filter(id=entextmodel_id)
+    post_text = EnBodyTextModel.objects.filter(heading_id=entextmodel_id)
+    background_list = EnTextModel.objects.filter(id=entextmodel_id)
+
+    context = {
+        "post_text_details": post_text,
+        'background_list_template': background_list,
+        'text_list_template': text_list,
+    }
+
+    return render(request, "text/en_details.html", context)
+
+
+def en_details_pdf_text(request, id):
+    pdf_text = EnPdfUploadModelForText.objects.filter(id=id)
+
+    context = {
+        "pdf_text": pdf_text}
+
+    return render(request, "text/en_pdf_details_text.html", context)
 
 
 # am eliminat background pentru pagina de detalii

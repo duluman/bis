@@ -2,11 +2,45 @@
 {% load static %}
 
 {% block homepage %}
+{% if background_list_template %}
+
+{% for element in background_list_template %}
+
+{% if element.picture %}
+  <div class="view jarallax" data-jarallax='{"speed": 0.01}' style="background-image: url('{{ MEDIA_URL }}{{ element.picture }}'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+    <!-- Mask & flexbox options-->
+    <div class="mask {{ element.mask_overlay }} d-flex justify-content-center align-items-center">
+      <!-- Content -->
+      <div class="container">
+        <!--Grid row-->
+        <div class="row">
+          <!--Grid column-->
+          <div class="col-md-12  text-center">
+            <h1 class="display-{{ element.title_size }} mb-0 pt-md-5 pt-5 {{ element.title_color }}-text font-weight-bold wow fadeInDown" data-wow-delay="3s">{{ element.title }}
+
+            </h1>
+            <h5 class="display-{{ element.subtitle_size }} text pt-md-5 pt-sm-2 pt-5 pb-md-5 pb-sm-3 pb-5 {{ element.subtitle_color }}-text font-weight-bold wow fadeInDown"
+              data-wow-delay="2s">{{ element.subtitle }}</h5>
+
+          </div>
+          <!--Grid column-->
+        </div>
+        <!--Grid row-->
+      </div>
+      <!-- Content -->
+    </div>
+    <!-- Mask & flexbox options-->
+  </div>
+{% endif %}
+{% endfor %}
+{% else %}
 <br><br><br>
+{% endif %}
+
 <div class="container my-5">
     <div class="row">
         {% for element in book_list_template %}
-            <div class="col">
+            <div class="col-lg-4">
 
                 <p class="my-6 font-weight-bold" style="text-align:center">{{ element.title }}</p>
                 <p style="text-align:center"> {{ element.subtitle }} </p>
@@ -17,6 +51,21 @@
         {% endfor %}
     </div>
 </div>
+
+
+<div class="container">
+    <div class="row">
+{% for element in pdf_list %}
+<div class="col-lg-4">
+<h1 style="text-align:center">{{ element.title }}</h1>
+<h5>{{ element.author }}</h5>
+<p>Citeste cartea: <a href="{% url 'book:pdf_details' element.id %}">{{ element.title }}</a> </p>
+</div>
+
+{% endfor %}
+    </div>
+</div>
+
 
 
 {% for element in book_list_template %}
@@ -53,7 +102,7 @@
                         {% for item in body_list_template %}
                     {% if element.id == item.heading_id %}
                         <h5 class="font-weight-bold mb-3">{{ item.title }}</h5>
-                        <p class="grey-text" style="text-align:justify">{{ item.body }}</p>
+                        <p  style="text-align:justify">{{ item.body }}</p>
                         {% endif %}
                     {% endfor %}
                     </div>
@@ -71,6 +120,8 @@
 <hr>
     </div>
     <!-- Container -->
+
+
 
 {% endfor %}
 

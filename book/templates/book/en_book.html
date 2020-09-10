@@ -1,0 +1,163 @@
+{% extends "en_homepage.html" %}
+{% load static %}
+
+{% block en_homepage %}
+{% if background_list_template %}
+
+{% for element in background_list_template %}
+
+{% if element.picture %}
+  <div class="view jarallax" data-jarallax='{"speed": 0.01}' style="background-image: url('{{ MEDIA_URL }}{{ element.picture }}'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+    <!-- Mask & flexbox options-->
+    <div class="mask {{ element.mask_overlay }} d-flex justify-content-center align-items-center">
+      <!-- Content -->
+      <div class="container">
+        <!--Grid row-->
+        <div class="row">
+          <!--Grid column-->
+          <div class="col-md-12  text-center">
+            <h1 class="display-{{ element.title_size }} mb-0 pt-md-5 pt-5 {{ element.title_color }}-text font-weight-bold wow fadeInDown" data-wow-delay="3s">{{ element.title }}
+
+            </h1>
+            <h5 class="display-{{ element.subtitle_size }} text pt-md-5 pt-sm-2 pt-5 pb-md-5 pb-sm-3 pb-5 {{ element.subtitle_color }}-text font-weight-bold wow fadeInDown"
+              data-wow-delay="2s">{{ element.subtitle }}</h5>
+
+          </div>
+          <!--Grid column-->
+        </div>
+        <!--Grid row-->
+      </div>
+      <!-- Content -->
+    </div>
+    <!-- Mask & flexbox options-->
+  </div>
+{% endif %}
+{% endfor %}
+{% else %}
+<br><br><br>
+{% endif %}
+
+<div class="container my-5">
+    <div class="row">
+        {% for element in book_list_template %}
+            <div class="col-lg-4">
+
+                <p class="my-6 font-weight-bold" style="text-align:center">{{ element.title }}</p>
+                <p style="text-align:left"> {{ element.subtitle }} </p>
+                <div class="row">
+
+                   <div class="col-lg-6">
+                        <div class="avatar w-100 white d-flex justify-content-center align-items-center">
+                                        {% if element.picture %}
+                                      <img
+                                        src="{{ MEDIA_URL }}{{ element.picture }}"
+                                        class="img-fluid z-depth-1"
+                                        alt="element.title"
+                                      />
+
+                                        {% endif %}
+                                    </div>
+                            </div>
+                <div class="col-lg-6">
+                <p style="font-weight: bold; text-align: center;"><a href="{% url 'book:en_details' element.id %}" >Read more</a></p>
+                </div>
+                    </div>
+
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row">
+{% for element in pdf_list %}
+<div class="col-lg-4">
+<p class="my-6 font-weight-bold" style="text-align:center">{{ element.title }}</p>
+<p>{{ element.author }}</p>
+<p>You can read the book <a href="{% url 'book:en_pdf_details' element.id %}">{{ element.title }}</a> </p>
+    <div class="row">
+    <div class="col-lg-6">
+    <div class="avatar w-100 white d-flex justify-content-center align-items-center">
+                    {% if element.picture %}
+                  <img
+                    src="{{ MEDIA_URL }}{{ element.picture }}"
+                    class="img-fluid z-depth-1"
+                    alt="element.title"
+                  />
+
+                    {% endif %}
+                </div>
+        </div>
+        <div class="col-lg-6">
+            <p style="font-weight: bold; text-align: center;"><a href="{% url 'book:en_pdf_details' element.id %}" >Read more</a></p>
+        </div>
+        </div>
+</div>
+
+{% endfor %}
+    </div>
+</div>
+
+
+
+{% for element in book_list_template %}
+<br>
+<!-- Container -->
+    <div class="container">
+        <!-- Section heading -->
+        <h2 class="h1-responsive font-weight-bold text-center mb-5">{{ element.title }}</h2>
+        <!-- Section description -->
+        <p class="lead grey-text text-center w-responsive mx-auto mb-5">{{ element.subtitle }}</p>
+
+        <!-- Grid row -->
+        <div class="row">
+
+            <!-- Grid column -->
+            <div class="col-lg-5 text-center text-lg-left">
+                <img class="img-fluid" src="{{ MEDIA_URL }}{{ element.picture }}" alt="{{ element.title }}">
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-lg-7">
+
+                <!-- Grid row -->
+                <div class="row mb-3">
+
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+
+                    <div class="col">
+                        {% for item in body_list_template %}
+                    {% if element.id == item.heading_id %}
+                        <h5 class="font-weight-bold mb-3">{{ item.title }}</h5>
+                        <p  style="text-align:justify">{{ item.body }}</p>
+                        {% endif %}
+                    {% endfor %}
+                    </div>
+
+                    <!-- Grid column -->
+
+                </div>
+                <!-- Grid row -->
+
+            </div>
+            <!--Grid column-->
+
+        </div>
+        <!-- Grid row -->
+<hr>
+    </div>
+    <!-- Container -->
+
+
+
+{% endfor %}
+
+
+
+{% endblock en_homepage %}

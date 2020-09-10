@@ -1,5 +1,6 @@
 from django.contrib import admin
 from interview.models import InterviewModel, InterviewTitleTopBackground
+from interview.models import EnInterviewModel, EnInterviewTitleTopBackground
 # Register your models here.
 
 
@@ -14,3 +15,16 @@ class InterviewAdmin(admin.ModelAdmin):
 
 
 admin.site.register(InterviewTitleTopBackground)
+
+
+@admin.register(EnInterviewModel)
+class EnInterviewAdmin(admin.ModelAdmin):
+
+    list_display = ['title']
+    search_fields = ['title']
+
+    class Meta:
+        model = EnInterviewModel
+
+
+admin.site.register(EnInterviewTitleTopBackground)

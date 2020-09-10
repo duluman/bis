@@ -1,0 +1,65 @@
+{% extends "en_homepage.html" %}
+{% load static %}
+
+{% block en_homepage %}
+
+<br><br><br>
+
+{% for element in book_show %}
+<!-- Container -->
+    <div class="container my-5">
+        <!-- Section heading -->
+        <!-- Grid row -->
+        <div class="row">
+            <!-- Grid column -->
+            <div class="col-lg-4 text-center text-lg-left">
+                <img class="img-fluid" src="{{ MEDIA_URL }}{{ element.picture }}" alt="{{ element.title }}">
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-lg-8">
+                <h2 class="h1-responsive font-weight-bold text-center mb-5">{{ element.title }}</h2>
+        <!-- Section description -->
+                <p class="lead grey-text text-center w-responsive mx-auto mb-5">{{ element.subtitle }}</p>
+
+                <!-- Grid row -->
+                <div class="row">
+
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+
+                    <div class="col">
+                        {% for item in post_text_details %}
+                    {% if element.id == item.heading_id %}
+                        <h5 class="font-weight-bold mb-3">{{ item.title }}</h5>
+                        <p class="grey-text" style="text-align:justify">{{ item.body }}</p>
+                        {% endif %}
+                    {% endfor %}
+                    </div>
+
+                    <!-- Grid column -->
+
+                </div>
+                <!-- Grid row -->
+
+            </div>
+            <!--Grid column-->
+
+        </div>
+        <!-- Grid row -->
+
+    </div>
+    <!-- Container -->
+{% endfor  %}
+<div  class="container-fluid d-flex align-items-center justify-content-center">
+        <a href="{% url 'book:en_book' %}" class="btn" style="font-weight: bold;">Back</a>
+
+    </div>
+
+
+
+{% endblock en_homepage %}

@@ -23,7 +23,7 @@ def app_review_view(request):
 class AddReviewView(CreateView):
     model = AppReview
     template_name = 'review/add_review.html'
-    fields = ['comment', 'profession']
+    fields = ['comment', 'profession', 'youtube_link']
 
     def get_initial(self):
         initial = {'name': self.request.user}
@@ -35,6 +35,35 @@ class AddReviewView(CreateView):
         form.instance.name = self.request.user
         # Call super-class form validation behaviour
         return super(AddReviewView, self).form_valid(form)
+
+
+def en_app_review_view(request):
+    review_objects = AppReview.objects.all()
+    review_count = AppReview.objects.all().count()
+
+    context = {
+        'review_list': review_objects,
+        'count_app': review_count
+    }
+
+    return render(request, 'review/en_app_review.html', context)
+
+
+@method_decorator(login_required, name='dispatch')
+class EnAddReviewView(CreateView):
+    model = AppReview
+    template_name = 'review/en_add_review.html'
+    fields = ['comment', 'profession', 'youtube_link']
+
+    def get_initial(self):
+        initial = {'name': self.request.user}
+        return initial
+
+    def form_valid(self, form):
+        form.instance.name = self.request.user
+
+        return super(EnAddReviewView, self).form_valid(form)
+
 
 
 
