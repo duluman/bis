@@ -44,8 +44,8 @@
     <div class="row">
         {% for element in video_list_template %}
     <div class="col-lg-4 col-md-4 mb-2">
-        <h6 class="my-6 font-weight-bold">{{ element.title }}</h6>
-         <p>  {{ element.category }} </p>
+        <h6 class="my-6 font-weight-bold" style="text-align:center">{{ element.title }}</h6>
+         <p style="text-align:justify">  {{ element.category }} </p>
             <div class="embed-responsive embed-responsive-16by9">
                 {% if element.youtube_video_link %}
                     <iframe class="embed-responsive-item"  src="https://www.youtube.com/embed/{{ element.youtube_video_link }}"  allowfullscreen>

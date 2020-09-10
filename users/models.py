@@ -70,4 +70,20 @@ class ContactApp(models.Model):
         return self.title
 
 
+class EnContactApp(models.Model):
+    title = models.CharField(max_length=255, default="Title for contact from")
+    envelope_message = models.CharField(max_length=255, default="Lets talk")
+    contact_info = models.CharField(max_length=255, default="Contact Info")
+    location = models.CharField(max_length=255, default="Cugir, Romania")
+    phone = models.CharField(max_length=255, default="0040769370793")
+    email = models.CharField(max_length=255, default="boanca_ionut_silviu@yahoo.com")
+    link_facebook = models.CharField(max_length=255, default=None, blank=True)
+    link_youtube = models.CharField(max_length=255, default=None, blank=True)
+    link_linkedin = models.CharField(max_length=255, default=None, blank=True)
+    link_instagram = models.CharField(max_length=255, default=None, blank=True)
+
+    def __str__(self):
+        return self.title
+
+
 

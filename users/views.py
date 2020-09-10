@@ -9,11 +9,11 @@ from users.forms import LoginForm, UploadProfileImage
 from django.http import HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
 from django.template.loader import get_template
-from users.forms import ContactForm
+from users.forms import ContactForm, EnContactForm
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib import messages
 from django.contrib.auth import update_session_auth_hash
-from users.models import ContactApp
+from users.models import ContactApp, EnContactApp
 from django import forms
 from django.utils.translation import gettext_lazy as _
 
@@ -60,6 +60,28 @@ def profile(request):
         form = UploadProfileImage()
 
     return render(request, 'users/profile.html', {
+        'form': form,
+        'ip_address': remote_address
+    })
+
+
+@login_required
+def en_profile(request):
+    remote_address = request.META.get('REMOTE_ADDR')
+    if request.method == 'POST':
+        user_profile = request.user.profile
+        form = UploadProfileImage(request.POST, request.FILES, instance=user_profile)
+
+        if form.is_valid():
+            user_profile = form.save(commit=False)
+            user_profile.user = request.user
+            user_profile.save()
+            return HttpResponseRedirect(reverse('users:en_profile'))
+
+    else:
+        form = UploadProfileImage()
+
+    return render(request, 'users/en_profile.html', {
         'form': form,
         'ip_address': remote_address
     })
@@ -171,6 +193,55 @@ def contact_view(request):
     return render(request, "users/contact.html", context)
 
 
+def en_contact_view(request):
+    contact_list = EnContactApp.objects.all()
+    if request.method == 'POST':
+
+        form = EnContactForm(request.POST)
+
+        if form.is_valid():
+
+            first_name = form.cleaned_data['first_name']
+            last_name = form.cleaned_data['last_name']
+            email = form.cleaned_data['email']
+            mobile = form.cleaned_data['mobile']
+            subject = form.cleaned_data['subject']
+            message = form.cleaned_data['message']
+            email_template = get_template('users/en_contact_email_send.html')
+
+            email_content = email_template.render(
+                {
+
+                    'first_name': first_name,
+                    'last_name': last_name,
+                    'email': email,
+                    'mobile': mobile,
+                    'subject': subject,
+                    'message': message,
+                }
+            )
+
+            mail = EmailMultiAlternatives(
+                f'Boanca Ionut Silviu:{subject}',
+                email_content,
+                settings.EMAIL_HOST_USER,
+                [email],
+                (settings.EMAIL_HOST_USER, )
+            )
+            mail.content_subtype = 'html'
+            mail.send()
+            messages.success(request, 'Your message has been send!')
+            return HttpResponseRedirect(reverse('users:en_contact'))
+    else:
+        form = EnContactForm()
+
+    context = {
+        'form': form,
+        'contact_list': contact_list}
+
+    return render(request, "users/en_contact.html", context)
+
+
 @login_required
 def change_password(request):
 
@@ -191,4 +262,21 @@ def change_password(request):
     })
 
 
+@login_required
+def en_change_password(request):
 
+    if request.method == 'POST':
+        form = PasswordChangeForm(request.user, request.POST)
+
+        if form.is_valid():
+            user = form.save()
+            update_session_auth_hash(request, user)
+            messages.success(request, 'Your password has been changed!')
+            return redirect('users:en_profile')
+        else:
+            messages.error(request, 'Error:')
+    else:
+        form = PasswordChangeForm(request.user)
+    return render(request, 'users/en_change_password.html', {
+        'form': form
+    })

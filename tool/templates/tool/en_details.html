@@ -1,0 +1,43 @@
+{% extends "en_homepage.html" %}
+{% load static %}
+
+{% block en_homepage %}
+
+
+{% if not  element in background_list_template %}
+<br><br><br>
+{% endif %}
+<div class="container my-5">
+
+    <div class="row">
+        {% for element in post_text_details %}
+        <!-- Grid column -->
+            <div class="col-md-8 col-xl-6">
+
+                <div class="card-body form">
+
+                    <div class="view overlay z-depth-3-half">
+
+                    {% if element.image %}
+
+                    <img src="{{ MEDIA_URL }}{{ element.image }}" class="img-fluid" alt=""/>
+                    <div class="mask rgba-white-slight"></div>
+                                        {% endif %}
+                    <div>
+                        <h4 class="my-4 font-weight-bold">{{ element.title }}</h4>
+                        <p style="text-align:justify"> {{ element.body }} </p>
+
+                    </div>
+                    </div>
+
+                 </div>
+            </div>
+        {% endfor %}
+    </div>
+    <div  class="container-fluid d-flex align-items-center justify-content-center">
+        <a href="{% url 'tool:en_tool' %}" class="btn" style="font-weight: bold;">Back</a>
+
+    </div>
+</div>
+
+{% endblock en_homepage %}

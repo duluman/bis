@@ -24,34 +24,34 @@
             <a class="dropdown-item" href="{% url 'review:en_app_review' %}" style="font-weight: bold">Review</a> </div>
       </li>
      <li class="nav-item">
-      <a class="nav-link"   href="{% url 'direction:direction' %}" style="font-weight: bold">Direction</a>
+      <a class="nav-link"   href="{% url 'direction:en_direction' %}" style="font-weight: bold">Direction</a>
   </li>
 
   <li class="nav-item ">
-      <a class="nav-link" href="{% url 'event:event' %}"style="font-weight: bold" >Events</a>
+      <a class="nav-link" href="{% url 'event:en_event' %}"style="font-weight: bold" >Events</a>
   </li>
 
         <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
     aria-expanded="false">Resources</a>
         <div class="dropdown-menu dropdown-secondary">
-            <a class="dropdown-item" href="{% url 'text:text' %}" style="font-weight: bold">Text
+            <a class="dropdown-item" href="{% url 'text:en_text' %}" style="font-weight: bold">Text
                 <i class="fas fa-envelope green-text ml-4" style="text-align: right" ></i></a>
-            <a class="dropdown-item" href="{% url 'audio:audio' %}" style="font-weight: bold">Audio
+            <a class="dropdown-item" href="{% url 'audio:en_audio' %}" style="font-weight: bold">Audio
                 <i class="fas fa-music indigo-text ml-4" ></i></a>
-            <a class="dropdown-item" href="{% url 'video:video' %}" style="font-weight: bold">Video
+            <a class="dropdown-item" href="{% url 'video:en_video' %}" style="font-weight: bold">Video
                 <i class="fas fa-video red-text ml-4" ></i></a>
-            <a class="dropdown-item" href="{% url 'interview:interview' %}" style="font-weight: bold">Interview
+            <a class="dropdown-item" href="{% url 'interview:en_interview' %}" style="font-weight: bold">Interviews
                 <i class="fas fa-microphone amber-text ml-2" ></i></a>
-            <a class="dropdown-item" href="{% url 'tool:tool' %}" style="font-weight: bold">Tools
+            <a class="dropdown-item" href="{% url 'tool:en_tool' %}" style="font-weight: bold">Tools
                 <i class="fas fa-tools dark-text ml-4" ></i></a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="{% url 'book:book' %}" style="font-weight: bold">Book recomandation
+            <a class="dropdown-item" href="{% url 'book:en_book' %}" style="font-weight: bold">Book recomandation
                 <i class="fas fa-book red-text ml-1" ></i></a>
         </div>
     </li>
         <li class="nav-item">
-      <a class="nav-link"   href="{% url 'users:contact' %}" >Contact</a>
+      <a class="nav-link"   href="{% url 'users:en_contact' %}" >Contact</a>
   </li>
 
 
@@ -64,7 +64,7 @@
             {% csrf_token %}
                 <div class="md-form my-0">
               <input type="text" name="search_for" value="{{ search_term }}"
-                     placeholder="key word">
+                     placeholder="keyword search">
             <button class="btn btn-sm btn-outline-dark " type="submit"><i class="fas fa-search"></i></button>
                 </div>
         </form>
@@ -83,7 +83,7 @@
           <a class="nav-link" href="{% url 'users:logout' %}">Logout</a></li>
 
       <li class="nav-item  ">
-    <a class="nav-link" id="prof-tab"  href="{% url 'users:profile' %}" ><i class='fas fa-user  blue-text mr-1'></i>Profile</a>
+    <a class="nav-link" id="prof-tab"  href="{% url 'users:en_profile' %}" ><i class='fas fa-user  blue-text mr-1'></i>Profile</a>
   </li>
 
     {% else %}

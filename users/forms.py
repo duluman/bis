@@ -114,6 +114,15 @@ class ContactForm(forms.Form):
     message = forms.CharField(required=True, min_length=10, max_length=1000, label='Mesajul tau', widget=forms.Textarea)
 
 
+class EnContactForm(forms.Form):
+    first_name = forms.CharField(required=True, max_length=255)
+    last_name = forms.CharField(required=True, max_length=255)
+    email = forms.EmailField(required=True)
+    mobile = forms.CharField(required=False, max_length=20)
+    subject = forms.CharField(required=True, max_length=255)
+    message = forms.CharField(required=True, min_length=10, max_length=1000, widget=forms.Textarea)
+
+
 
 # class ChangePasswordForm(forms.Form):
 #     password = forms.CharField(

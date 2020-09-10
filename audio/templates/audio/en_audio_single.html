@@ -1,0 +1,49 @@
+{% extends "en_homepage.html" %}
+{% load static %}
+
+{% block en_homepage %}
+
+<br><br><br>
+
+<div class="container">
+{% for item in song %}
+<div class="card mb-3" style="padding-top: 3%">
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <img src="{{ MEDIA_URL }}{{ item.picture }}" class="card-img" alt="{{ item.title }}">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="font-weight-bold dark-text mt-4">{{ item.title }}</h5>
+          <p class="font-weight-bold my-4 pb-2">{{ item.category }}</p>
+          <p class="font-weight-bold my-4 pb-2">{{ item.author }}</p>
+
+        </div>
+        <p style=" padding-left: 3%; padding-right: 3%; text-align:justify;">{{ item.body }}</p>
+        <br>
+
+         {% for element in sounds %}
+            {% if element.connection_id == item.id %}
+              <p class="font-weight-bold my-4 pb-2">{{ element.audio_name }}</p>
+              <audio controls style="padding-top: 2%;">
+                <source src="{{ MEDIA_URL }}{{ element.audio }}" type="audio/mp3">
+            </audio>
+        <p style=" padding-left: 3%; padding-right: 3%; text-align:justify;">{{ element.body }}</p>
+        <hr>
+            {% endif%}
+          {% endfor %}
+
+      </div>
+
+    </div>
+
+  </div>
+  {% endfor %}
+</div>
+<div  class="container-fluid d-flex align-items-center justify-content-center">
+        <a href="{% url 'audio:en_audio' %}" class="btn" style="font-weight: bold;">Back</a>
+
+    </div>
+
+
+{% endblock en_homepage %}

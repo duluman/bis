@@ -1,0 +1,64 @@
+{% extends "en_homepage.html" %}
+{% load static %}
+
+{% block en_homepage %}
+
+
+
+{% for element in background_list_template %}
+
+{% if element.picture %}
+    <div class="view jarallax" data-jarallax='{"speed": 0.01}' style="background-image: url('{{ MEDIA_URL }}{{ element.picture }}'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+    <!-- Mask & flexbox options-->
+    <div class="mask {{ element.mask_overlay }} d-flex justify-content-center align-items-center">
+      <!-- Content -->
+      <div class="container">
+        <!--Grid row-->
+        <div class="row">
+          <!--Grid column-->
+          <div class="col-md-12  text-center">
+            <h1 class="display-{{ element.title_size }} mb-0 pt-md-5 pt-5 {{ element.title_color }}-text font-weight-bold wow fadeInDown" data-wow-delay="3s">{{ element.title }}
+
+            </h1>
+            <h5 class="display-{{ element.subtitle_size }} text pt-md-5 pt-sm-2 pt-5 pb-md-5 pb-sm-3 pb-5 {{ element.subtitle_color }}-text font-weight-bold wow fadeInDown"
+              data-wow-delay="2s">{{ element.subtitle }}</h5>
+
+          </div>
+          <!--Grid column-->
+        </div>
+        <!--Grid row-->
+      </div>
+      <!-- Content -->
+    </div>
+    <!-- Mask & flexbox options-->
+  </div>
+{% endif %}
+{% endfor %}
+{% if not  element in background_list_template %}
+<br><br><br>
+{% endif %}
+
+
+
+<div class="container">
+    <div class="row">
+        {% for element in video_list_template %}
+    <div class="col-lg-4 col-md-4 mb-2">
+        <h6 class="my-6 font-weight-bold" style="text-align:center">{{ element.title }}</h6>
+         <p style="text-align:justify">  {{ element.category }} </p>
+            <div class="embed-responsive embed-responsive-16by9">
+                {% if element.youtube_video_link %}
+                    <iframe class="embed-responsive-item"  src="https://www.youtube.com/embed/{{ element.youtube_video_link }}"  allowfullscreen>
+                    </iframe>
+                {% endif %}
+            </div>
+         <hr>
+        <br>
+    </div>
+
+        {% endfor %}
+        </div>
+</div>
+
+
+{% endblock en_homepage %}

@@ -1,0 +1,189 @@
+{% extends "en_homepage.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block en_homepage %}
+
+<br>
+<br>
+{% for element in contact_list %}
+<h3 class="font-weight-bold my-4 pb-2 text-center" > {{ element.title }} </h3>
+<!-- Form contact -->
+
+
+  <div class="container my-5">
+
+
+    <!--Section: Content-->
+    <section class="contact-section dark-grey-text mb-5">
+
+
+      <!-- Form with header -->
+      <div class="card">
+
+        <!-- Grid row -->
+        <div class="row">
+
+          <!-- Grid column -->
+          <div class="col-lg-8">
+
+            <div class="card-body form">
+
+              <!-- Header -->
+              <h4 class="font-weight-bold dark-grey-text mt-4"><i class="fas fa-envelope pr-2 mr-1"></i>{{ element.envelope_message }}</h4>
+              <form method="post" action="{% url 'users:en_contact' %}" >
+                    {% csrf_token %}
+              <!-- Grid row -->
+              <div class="row">
+
+                <!-- Grid column -->
+                <div class="col-md-6">
+
+
+
+
+                    {{ form.first_name|as_crispy_field }}
+
+
+
+                </div>
+                <!-- Grid column -->
+
+                <!-- Grid column -->
+                <div class="col-md-6">
+
+                    {{ form.last_name|as_crispy_field }}
+
+                </div>
+                <!-- Grid column -->
+
+              </div>
+              <!-- Grid row -->
+
+              <!-- Grid row -->
+              <div class="row">
+
+                <!-- Grid column -->
+                <div class="col-md-6">
+
+                    {{ form.mobile|as_crispy_field }}
+
+                </div>
+                <!-- Grid column -->
+
+                <!-- Grid column -->
+                <div class="col-md-6">
+
+                    {{ form.email|as_crispy_field }}
+
+                </div>
+                <!-- Grid column -->
+
+              </div>
+              <!-- Grid row -->
+              <!-- Grid row -->
+              <div class="row">
+
+                <!-- Grid column -->
+                <div class="col-md-6">
+
+                    {{ form.subject|as_crispy_field }}
+
+                </div>
+                <!-- Grid column -->
+
+
+
+              </div>
+              <!-- Grid row -->
+              <!-- Grid row -->
+              <div class="row">
+
+                <!-- Grid column -->
+                <div class="col-md-12">
+                    {{ form.message|as_crispy_field }}
+
+                </div>
+                <!-- Grid column -->
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="gridCheck1">
+                    <label class="form-check-label" for="gridCheck1">
+                      <p>  By continuing to use our website, you accept the terms of our
+ <a href="#">policies</a></p>
+                    </label>
+                </div>
+              </div>
+              <!-- Grid row -->
+
+                <button type="submit" class="btn font-weight-bold"><i class="far fa-paper-plane"></i> Send </button>
+
+              </form>
+            </div>
+
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-lg-4">
+
+            <div class="card-body contact text-center h-100 dark-grey-text">
+
+              <h4 class="font-weight-bold my-4 pb-2 ">{{ element.contact_info }}</h4>
+
+
+              <div style="text-align: left">
+
+                  <p><i class="fas fa-map-marker-alt pr-2"></i>{{ element.location }}</p>
+
+
+                  <p><i class="fas fa-phone pr-2"></i>{{ element.phone }}</p>
+
+
+                  <p><i class="fas fa-envelope pr-2">
+
+                  </i>{{ element.email }}</p>
+
+              </div>
+              <hr class="hr-light my-4">
+              <ul class="list-inline text-center list-unstyled">
+                <li class="list-inline-item">
+                  <a class="p-2 fa-lg tw-ic" href="{{ element.link_facebook }}" target="_blank">
+                    <i class="fab fa-facebook indigo-text"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a class="p-2 fa-lg tw-ic" href="{{ element.link_youtube }}" target="_blank">
+                    <i class="fab fa-youtube red-text"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a class="p-2 fa-lg li-ic" href="{{ element.link_linkedin }}" target="_blank">
+                    <i class="fab fa-linkedin-in blue-text"> </i>
+                  </a>
+                </li>
+                {% if element.link_instagram %}
+                <li class="list-inline-item">
+                  <a class="p-2 fa-lg ins-ic" href="{{ element.link_instagram }}" target="_blank">
+                    <i class="fab pink-text fa-instagram"> </i>
+                  </a>
+                </li>
+                {% endif %}
+              </ul>
+
+            </div>
+
+          </div>
+          <!-- Grid column -->
+
+        </div>
+        <!-- Grid row -->
+
+      </div>
+      <!-- Form with header -->
+
+    </section>
+    <!--Section: Content-->
+
+
+  </div>
+{% endfor %}
+{% endblock en_homepage %}

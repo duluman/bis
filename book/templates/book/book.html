@@ -57,7 +57,7 @@
     <div class="row">
 {% for element in pdf_list %}
 <div class="col-lg-4">
-<h1>{{ element.title }}</h1>
+<h1 style="text-align:center">{{ element.title }}</h1>
 <h5>{{ element.author }}</h5>
 <p>Citeste cartea: <a href="{% url 'book:pdf_details' element.id %}">{{ element.title }}</a> </p>
 </div>

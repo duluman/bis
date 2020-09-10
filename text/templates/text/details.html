@@ -3,7 +3,27 @@
 
 {% block homepage %}
 
+<div class="row">
+    <div class="col-lg-4 col-md-6 mb-2"></div>
+{% for element in text_list_template %}
+<div class="col-lg-4 col-md-6 mb-2">
 
+    <div class="view overlay z-depth-3-half">
+
+        {% if element.picture %}
+
+            <img src="{{ MEDIA_URL }}{{ element.picture }}" class="img-fluid" alt="{{ element.title }}"/>
+            <div class="mask rgba-white-slight"></div>
+
+        {% endif %}
+         <h4 class="my-4 font-weight-bold" style="text-align:center">{{ element.title }}</h4>
+        <p style="text-align:justify"> {{ element.subtitle }} </p>
+
+    </div>
+
+</div>
+{% endfor %}
+</div>
 
 
 
