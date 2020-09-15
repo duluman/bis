@@ -1,6 +1,21 @@
 from django import forms
-from users.models import MyUser, Profile
+from users.models import MyUser, Profile, RoNewsletter
 from django.contrib.auth import password_validation
+
+
+class RoNewsletterForm(forms.Form):
+    email = forms.EmailField(required=True, label='Adresa ta de email')
+
+    def clean_email(self):
+        email = self.cleaned_data['email']
+        return email
+
+    def save(self):
+
+        email = self.cleaned_data['email']
+        user_email = RoNewsletter()
+        user_email.email = email
+        user_email.save()
 
 
 class LoginForm(forms.Form):
