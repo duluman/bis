@@ -9,7 +9,7 @@ from users.forms import LoginForm, UploadProfileImage
 from django.http import HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
 from django.template.loader import get_template
-from users.forms import ContactForm, EnContactForm, RoNewsletterForm
+from users.forms import ContactForm, EnContactForm, RoNewsletterForm, EnNewsletterForm
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib import messages
 from django.contrib.auth import update_session_auth_hash
@@ -158,7 +158,25 @@ def ro_news_letter(request):
 
     return render(request, 'snippets/footer_snippet.html', {
 
-                        'form': form
+                        'form_news': form
+                   })
+
+
+def en_news_letter(request):
+
+    if request.method == 'POST':
+        form = EnNewsletterForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Done!')
+            return HttpResponseRedirect(reverse('review:en_app_review'))
+    else:
+        form = RoNewsletterForm()
+
+    return render(request, 'snippets/en_footer_snippet.html', {
+
+                        'form_news': form
                    })
 
 

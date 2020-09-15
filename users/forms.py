@@ -18,6 +18,21 @@ class RoNewsletterForm(forms.Form):
         user_email.save()
 
 
+class EnNewsletterForm(forms.Form):
+    email = forms.EmailField(required=True, label='Your email')
+
+    def clean_email(self):
+        email = self.cleaned_data['email']
+        return email
+
+    def save(self):
+
+        email = self.cleaned_data['email']
+        user_email = RoNewsletter()
+        user_email.email = email
+        user_email.save()
+
+
 class LoginForm(forms.Form):
     email = forms.EmailField(required=True, label='E-mail')
     password = forms.CharField(
