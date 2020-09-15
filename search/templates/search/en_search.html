@@ -1,16 +1,16 @@
-{% extends "homepage.html" %}
+{% extends "en_homepage.html" %}
 {% load static %}
 
-{% block homepage %}
+{% block en_homepage %}
 <br><br><br>
 <div class="container">
     <div class="row">
         <div class="col-md-6">
-<form class="form-inline" action="{% url 'search:search' %}"  method="post">
+<form class="form-inline" action="{% url 'search:en_search' %}"  method="post">
          {% csrf_token %}
           <div class="md-form my-0">
               <input type="text" name="search_for" value="{{ search_term }}"
-                     placeholder="cuvant cheie">
+                     placeholder="key word">
               <!--<input type="submit"  class="btn btn-primary" name="Go">-->
               <button type="submit" class="btn btn"> <i class="fas fa-search"></i></button>
 
@@ -21,161 +21,153 @@
         <div class="col-md-6">
         {% if search_term %}
 
-            <p><b>Ai cautat: "{{ search_term }}".</b>
+            <p><b>Your search: "{{ search_term }}".</b>
 
                 <!--    book section-->
                 {% if book_list.count == 1 %}
                 <br>
-                Am gasit {{book_list.count}} rezultat in sectiunea <a href="{% url 'book:book' %}">"Recomandari de carte" </a>
+                Found {{book_list.count}} at: <a href="{% url 'book:en_book' %}">"Book recomandation" </a>
                 {% elif book_list.count == 0 %}
                 {% else %}
                 <br>
-                Am gasit {{book_list.count}} rezultate in sectiunea <a href="{% url 'book:book' %}">"Recomandari de carte" </a>
+                Found {{book_list.count}} at <a href="{% url 'book:en_book' %}">"Book recomandation" </a>
                 {% endif %}
 
 
                 <!--    book body section-->
                 {% if book_body_list.count == 1 %}
                 <br>
-                Am gasit {{book_body_list.count}} rezultat in sectiunea <a href="{% url 'book:book' %}">"Recomandari de carte" </a>
+                Found {{book_body_list.count}} at <a href="{% url 'book:en_book' %}">"Book recomandation" </a>
                 {% elif book_body_list.count == 0 %}
                 {% else %}
                 <br>
-                Am gasit {{book_body_list.count}} rezultate in sectiunea <a href="{% url 'book:book' %}">"Recomandari de carte" </a>
+                Found {{book_body_list.count}} at <a href="{% url 'book:en_book' %}">"Book recomandation" </a>
                 {% endif %}
 
                 <!--    story section-->
                 {% if story_list.count == 1 %}
                 <br>
-                Am gasit {{story_list.count}} rezultat in sectiunea <a href="{% url 'story:story' %}">"Povestea mea" </a>
+                Found {{story_list.count}} at <a href="{% url 'story:en_story' %}">"My story" </a>
                 {% elif story_list.count == 0 %}
                 {% else %}
                 <br>
-                Am gasit {{story_list.count}} rezultate in sectiunea <a href="{% url 'story:story' %}">"Povestea mea" </a>
+                Found {{story_list.count}} at <a href="{% url 'story:en_story' %}">"My story" </a>
                 {% endif %}
 
                 <!--    personal development section-->
                 {% if personal_list.count == 1 %}
                 <br>
-                Am gasit {{personal_list.count}} rezultat in sectiunea <a href="{% url 'personal:personal' %}">"Dezvoltare personala" </a>
+                Found {{personal_list.count}} at <a href="{% url 'personal:en_personal' %}">"Personal development" </a>
                 {% elif personal_list.count == 0 %}
                 {% else %}
                 <br>
-                Am gasit {{personal_list.count}} rezultate in sectiunea <a href="{% url 'personal:personal' %}">"Dezvoltare personala" </a>
+                Found {{personal_list.count}} at <a href="{% url 'personal:en_personal' %}">"Personal development" </a>
                 {% endif %}
 
                 <!--    professional development section-->
                 {% if professional_list.count == 1 %}
                 <br>
-                Am gasit {{professional_list.count}} rezultat in sectiunea <a href="{% url 'professional:professional' %}">"Dezvoltare profesionala" </a>
+                Found {{professional_list.count}} at <a href="{% url 'professional:en_professional' %}">"Professional development" </a>
                 {% elif professional_list.count == 0 %}
                 {% else %}
                 <br>
-                Am gasit {{professional_list.count}} rezultate in sectiunea <a href="{% url 'professional:professional' %}">"Dezvoltare profesionala" </a>
+                Found {{professional_list.count}} at <a href="{% url 'professional:en_professional' %}">"Professional development" </a>
                 {% endif %}
 
                 <!--    gratitude and thankfulness section-->
                 {% if gratitude_list.count == 1 %}
                 <br>
-                Am gasit {{gratitude_list.count}} rezultat in sectiunea <a href="{% url 'gratitude:gratitude' %}">"Multumiri si recunostinta"</a>
+                Found {{gratitude_list.count}} at <a href="{% url 'gratitude:en_gratitude' %}">"Gratitude"</a>
                 {% elif gratitude_list.count == 0 %}
                 {% else %}
                 <br>
-                Am gasit {{gratitude_list.count}} rezultate in sectiunea <a href="{% url 'gratitude:gratitude' %}">"Multumiri si recunostinta"</a>
+                Found {{gratitude_list.count}} at <a href="{% url 'gratitude:en_gratitude' %}">"Gratitude"</a>
                 {% endif %}
 
-                <!--    testimonials section-->
-                {% if review_list.count == 1 %}
-                <br>
-                Am gasit {{review_list.count}} rezultat in sectiunea <a href="{% url 'review:app_review' %}">"Testimoniale"</a>
-                {% elif review_list.count == 0 %}
-                {% else %}
-                <br>
-                Am gasit {{review_list.count}} rezultate in sectiunea <a href="{% url 'review:app_review' %}">"Testimoniale"</a>
-                {% endif %}
+            
 
                 <!--    direction section-->
                 {% if direction_list.count == 1 %}
                 <br>
-                Am gasit {{direction_list.count}} rezultat in sectiunea <a href="{% url 'direction:direction' %}">"Directie"</a>
+                Found {{direction_list.count}} at <a href="{% url 'direction:en_direction' %}">"Direction"</a>
                 {% elif direction_list.count == 0 %}
                 {% else %}
                 <br>
-                Am gasit {{direction_list.count}} rezultate in sectiunea <a href="{% url 'direction:direction' %}">"Directie"</a>
+                Found {{direction_list.count}} at <a href="{% url 'direction:en_direction' %}">"Direction"</a>
                 {% endif %}
 
 
                 <!--    events section-->
                 {% if event_list.count == 1 %}
                 <br>
-                Am gasit {{event_list.count}} rezultat in sectiunea <a href="{% url 'event:event' %}">"Evenimente"</a>
+                Found {{event_list.count}} at <a href="{% url 'event:en_event' %}">"Events"</a>
                 {% elif event_list.count == 0 %}
                 {% else %}
                 <br>
-                Am gasit {{event_list.count}} rezultate in sectiunea <a href="{% url 'event:event' %}">"Evenimente"</a>
+                Found {{event_list.count}} at <a href="{% url 'event:en_event' %}">"Events"</a>
                 {% endif %}
 
                 <!--    text section-->
                 {% if text_list.count == 1 %}
                 <br>
-                Am gasit {{text_list.count}} rezultat in sectiunea <a href="{% url 'text:text' %}">"Text"</a>
+                Found {{text_list.count}} at <a href="{% url 'text:en_text' %}">"Text"</a>
                 {% elif text_list.count == 0 %}
                 {% else  %}
                 <br>
-                Am gasit {{text_list.count}} rezultate in sectiunea <a href="{% url 'text:text' %}">"Text"</a>
+                Found {{text_list.count}} at <a href="{% url 'text:en_text' %}">"Text"</a>
                 {% endif %}
 
 
                 <!--    text body section-->
                 {% if body_text_list.count == 1 %}
                 <br>
-                Am gasit {{body_text_list.count}} rezultat in sectiunea <a href="{% url 'text:text' %}">"Text"</a>
+                Found {{body_text_list.count}} at <a href="{% url 'text:en_text' %}">"Text"</a>
                 {% elif body_text_list.count == 0 %}
                 {% else  %}
                 <br>
-                Am gasit {{body_text_list.count}} rezultate in sectiunea <a href="{% url 'text:text' %}">"Text"</a>
+                Found {{body_text_list.count}} at <a href="{% url 'text:en_text' %}">"Text"</a>
                 {% endif %}
 
 
                 <!--    audio section-->
                 {% if audio_list.count == 1 %}
                 <br>
-                Am gasit {{audio_list.count}} rezultat in sectiunea <a href="{% url 'audio:audio' %}">"Audio"</a>
+                Found {{audio_list.count}} at <a href="{% url 'audio:en_audio' %}">"Audio"</a>
                 {% elif audio_list.count == 0 %}
                 {% else  %}
                 <br>
-                Am gasit {{audio_list.count}} rezultate in sectiunea <a href="{% url 'audio:audio' %}">"Audio"</a>
+                Found {{audio_list.count}} at <a href="{% url 'audio:en_audio' %}">"Audio"</a>
                 {% endif %}
 
 
                 <!--    video section-->
                 {% if video_list.count == 1 %}
                 <br>
-                Am gasit {{video_list.count}} rezultat in sectiunea <a href="{% url 'video:video' %}">"Video"</a>
+                Found {{video_list.count}} at <a href="{% url 'video:en_video' %}">"Video"</a>
                 {% elif video_list.count == 0 %}
                 {% else  %}
                 <br>
-                Am gasit {{video_list.count}} rezultate in sectiunea <a href="{% url 'video:video' %}">"Video"</a>
+                Found {{video_list.count}} at <a href="{% url 'video:en_video' %}">"Video"</a>
                 {% endif %}
 
                 <!--    interview section-->
                 {% if interview_list.count == 1 %}
                 <br>
-                Am gasit {{interview_list.count}} rezultat in sectiunea <a href="{% url 'interview:interview' %}">"Interviuri"</a>
+                Found {{interview_list.count}} at <a href="{% url 'interview:en_interview' %}">"Interviews"</a>
                 {% elif interview_list.count == 0 %}
                 {% else  %}
                 <br>
-                Am gasit {{interview_list.count}} rezultate in sectiunea <a href="{% url 'interview:interview' %}">"Interviuri"</a>
+                Found {{interview_list.count}} at <a href="{% url 'interview:en_interview' %}">"Interviews"</a>
                 {% endif %}
 
                 <!--    tools section-->
                 {% if tool_list.count == 1 %}
                 <br>
-                Am gasit {{tool_list.count}} rezultat in sectiunea <a href="{% url 'tool:tool' %}">"Unelte"</a>
+                Found {{tool_list.count}} at <a href="{% url 'tool:en_tool' %}">"Tools"</a>
                 {% elif tool_list.count == 0 %}
                 {% else %}
                 <br>
-                Am gasit {{tool_list.count}} rezultate in sectiunea <a href="{% url 'tool:tool' %}">"Unelte"</a>
+                Found {{tool_list.count}} at <a href="{% url 'tool:en_tool' %}">"Tools"</a>
                 {% endif %}
 
             </p>
@@ -190,7 +182,7 @@
                 <div class="col-md-6">
                         <h4> {{ item.title }}</h4>
                         <p class="text-justify">{{ item.body }}</p>
-                         <p>Cuvantul cheie cautat apare pe pagina <a href="{% url 'story:story' %}">"Povestea mea" </a> la titlul {{ item.title }}</p>
+                         <p>Key word searched is on  <a href="{% url 'story:en_story' %}">"My story" </a> at {{ item.title }}</p>
                 <hr></div>
                  {% endfor %}
 <!--    story section-->
@@ -200,7 +192,7 @@
                 <div class="col-md-6">
                         <h4> {{ item.title }}</h4>
                         <p class="text-justify">{{ item.body }}</p>
-                         <p>Cuvantul cheie cautat apare pe pagina <a href="{% url 'personal:personal' %}">"Dezvoltare personala" </a> la titlul {{ item.title }}</p>
+                         <p>Key word searched is on  <a href="{% url 'personal:en_personal' %}">"Personal development" </a> at {{ item.title }}</p>
                 <hr></div>
                  {% endfor %}
 <!--    personal development section-->
@@ -210,7 +202,7 @@
                 <div class="col-md-6">
                         <h4> {{ item.title }}</h4>
                         <p class="text-justify">{{ item.body }}</p>
-                         <p>Cuvantul cheie cautat apare pe pagina <a href="{% url 'professional:professional' %}">"Dezvoltare profesionala" </a> la titlul {{ item.title }}</p>
+                         <p>Key word searched is on  <a href="{% url 'professional:en_professional' %}">"Professional development" </a> at {{ item.title }}</p>
                 <hr></div>
                  {% endfor %}
 <!--    professional development section-->
@@ -220,74 +212,20 @@
                 <div class="col-md-6">
                         <h4> {{ item.title }}</h4>
                         <p class="text-justify">{{ item.body }}</p>
-                         <p>Cuvantul cheie cautat apare pe pagina <a href="{% url 'gratitude:gratitude' %}">"Multumiri si recunostinta"</a> la titlul {{ item.title }}</p>
+                         <p>Key word searched is on  <a href="{% url 'gratitude:en_gratitude' %}">"Gratitude"</a> at {{ item.title }}</p>
                 <hr></div>
                  {% endfor %}
 <!--    gratitude and thankfulness section-->
 
-<!--    testimonials section-->
 
-        {% for customer_review in review_list %}
-
-      <div class="col-lg-6 px-3 mb-3 d-flex align-item-stretch">
-        <div class="card">
-          <div class="card-body m-1">
-            <div class="row mb-4">
-              <div class="col-lg-4 d-flex mb-2 align-items-center">
-                <div
-                  class="avatar w-100 white d-flex justify-content-center align-items-center"
-                >
-                    {% if customer_review.name.profile.avatar %}
-                  <img
-                    src="{{ MEDIA_URL }}{{ customer_review.name.profile.avatar }}"
-                    class="img-fluid z-depth-1"
-                    alt="avatar"
-                  />
-                    {% else %}
-                    <img
-                    src="https://banner2.cleanpng.com/20180802/icj/kisspng-user-profile-default-computer-icons-network-video-the-foot-problems-of-the-disinall-foot-care-founde-5b6346121ec769.0929994515332326581261.jpg"
-                    class="img-fluid z-depth-1"
-                    alt="avatar"
-                  />
-
-                    {% endif %}
-                </div>
-              </div>
-              <div
-                class="col-lg-8 text-muted d-flex flex-column justify-content-end pt-2"
-              >
-                <p class="mb-1"><strong>{{ customer_review.name.first_name }} {{ customer_review.name.last_name }}</strong></p>
-                <p class="mb-1"><i>{{ customer_review.profession }}</i></p>
-              </div>
-            </div>
-            <hr />
-              <div class="d-flex justify-content-end">
-              <p class="text-muted card-text mt-3 px-4 mb-2" >{{ customer_review.date }}</p></div>
-            <div class="row">
-              <p class="text-muted card-text mt-2 px-4 mb-2" style="text-align:justify">
-                <i class="fas fa-quote-left"></i> {{ customer_review.comment }}
-             <i class="fas fa-quote-right"></i>
-              </p><br><hr>
-                <p>Cuvantul cheie cautat apare pe pagina
-                    <a href="{% url 'review:app_review' %}">"Testimoniale" </a></p>
-            </div>
-
-          </div>
-        </div>
-
-      </div>
-
- {% endfor  %}
-
-<!--    testimonials section-->
 
 <!--    direction section-->
                  {% for item in direction_list %}
         <div class="col-md-6">
             <h4> {{ item.title }}</h4>
             <p class="text-justify">{{ item.body }}</p>
-             <p>Cuvantul cheie cautat apare pe pagina
-                 <a href="{% url 'direction:direction' %}">"Directie" </a> la titlul {{ item.title }}</p>
+             <p>Key word searched is on 
+                 <a href="{% url 'direction:en_direction' %}">"Direction" </a> at {{ item.title }}</p>
         <hr></div>
             {% endfor %}
 <!--    direction section-->
@@ -298,8 +236,8 @@
         <div class="col-md-6">
             <h4> {{ item.title }}</h4>
             <p class="text-justify">{{ item.body }}</p>
-             <p>Cuvantul cheie cautat apare pe pagina
-                 <a href="{% url 'event:event' %}">"Evenimente" </a> la titlul {{ item.title }}</p>
+             <p>Key word searched is on 
+                 <a href="{% url 'event:en_event' %}">"Events" </a> at {{ item.title }}</p>
         <hr></div>
             {% endfor %}
 <!--    events section-->
@@ -312,8 +250,8 @@
 <!--    body text section-->
     {% for item in body_text_list %}
         <div class="col-md-6">
-            <p>Cuvantul cheie cautat apare pe pagina "Text" la titlul
-                <a href="/resources/text/details/{{item.heading.id}}">{{ item.title }}</a></p>
+            <p>Key word searched is on  "Text" at
+                <a href="/resources/text/en/details/{{item.heading.id}}">{{ item.title }}</a></p>
             <h4> {{ item.title }}</h4>
             <textarea rows="7" class="text-justify" cols="60">{{ item.body }}</textarea>
         <hr></div>
@@ -324,8 +262,8 @@
 <!--    audio section-->
     {% for item in audio_list %}
         <div class="col-md-6">
-            <p>Cuvantul cheie cautat apare pe pagina "Text" la titlul
-                <a href="/resources/audio/details/{{item.id}}">{{ item.title }}</a></p>
+            <p>Key word searched is on  "Text" at
+                <a href="/resources/audio/en/details/{{item.id}}">{{ item.title }}</a></p>
             <audio controls style="padding-top: 2%;">
                 <source src="{{ MEDIA_URL }}{{item.audio_file}}" type="audio/mp3">
             </audio>
@@ -344,8 +282,8 @@
         <div class="col-md-6">
             <h4> {{ item.title }}</h4>
             <p class="text-justify">{{ item.category }}</p>
-             <p>Cuvantul cheie cautat apare pe pagina
-                 <a href="{% url 'video:video' %}">"Video" </a> la titlul "{{ item.title }}"</p>
+             <p>Key word searched is on 
+                 <a href="{% url 'video:en_video' %}">"Video" </a> at "{{ item.title }}"</p>
         <div class="embed-responsive embed-responsive-16by9">
             {% if item.youtube_video_link %}
                 <iframe class="embed-responsive-item"  src="https://www.youtube.com/embed/{{ item.youtube_video_link }}"  allowfullscreen>
@@ -361,8 +299,8 @@
         <div class="col-md-6">
             <h4> {{ item.title }}</h4>
             <p class="text-justify">{{ item.category }}</p>
-             <p>Cuvantul cheie cautat apare pe pagina
-                 <a href="{% url 'interview:interview' %}">"Interviuri" </a> la titlul "{{ item.title }}"</p>
+             <p>Key word searched is on 
+                 <a href="{% url 'interview:en_interview' %}">"Interviuri" </a> at "{{ item.title }}"</p>
         <div class="embed-responsive embed-responsive-16by9">
             {% if item.youtube_video_link %}
                 <iframe class="embed-responsive-item"  src="https://www.youtube.com/embed/{{ item.youtube_video_link }}"  allowfullscreen>
@@ -377,8 +315,8 @@
 <!--    tools section-->
     {% for item in tool_list %}
         <div class="col-md-6">
-            <p>Cuvantul cheie cautat apare pe pagina "Text" la titlul
-                <a href="/resources/tools/details/{{item.heading.id}}">{{ item.title }}</a></p>
+            <p>Key word searched is on  "Text" at
+                <a href="/resources/tools/en/details/{{item.heading.id}}">{{ item.title }}</a></p>
             <h4> {{ item.title }}</h4>
             <p class="text-justify">{{ item.body }}</p>
         <hr></div>
@@ -392,8 +330,8 @@
         <div class="col-md-6">
                         <h4> {{ item.title }}</h4>
                         <p class="text-justify">{{ item.subtitle }}</p>
-                         <p>Cuvantul cheie cautat apare pe pagina "Recomandari de carte" la titlul
-                             <a href="/resources/books/details/{{item.id}}">{{ item.title }} </a>  </p>
+                         <p>Key word searched is on  "Book recomandation" at
+                             <a href="/resources/books/en/details/{{item.id}}">{{ item.title }} </a>  </p>
         <hr></div>
             {% endfor %}
 <!--    book section-->
@@ -404,8 +342,8 @@
         <div class="col-md-6">
             <h4> {{ item.heading.title }}</h4>
             <p> {{ item.heading.subtitle }}</p>
-             <p>Cuvantul cheie cautat apare pe pagina "Recomandari de carte" la titlul
-                 <a href="/resources/books/details/{{item.heading.id}}">{{ item.heading.title }} </a> </p>
+             <p>Key word searched is on  "Book recomandation" at
+                 <a href="/resources/books/en/details/{{item.heading.id}}">{{ item.heading.title }} </a> </p>
 
             <textarea rows="7" class="text-justify" cols="60">{{ item.body }}</textarea>
 
@@ -417,7 +355,7 @@
 
             {% else %}
 
-            <p> Nu ai tastat caractere in campul de cautare </p>
+            <p> Type at least one character in the search fiel </p>
 
 
             {% endif %}
@@ -425,4 +363,4 @@
 <hr>
         </div>
     </div>
-{% endblock homepage %}
+{% endblock en_homepage %}
