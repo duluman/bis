@@ -90,8 +90,9 @@ class EnPdfUploadModel(models.Model):
     title = models.CharField(max_length=255, default=None, blank=True)
     author = models.CharField(max_length=255, default=None, blank=True)
     picture = models.ImageField(upload_to='pdf_book/', blank=True, null=True)
-    pdf_url = models.CharField(max_length=255, default=None, blank=True)
+
     date_of_post = models.DateTimeField(default=timezone.now)
+    pdf_upload = models.FileField(upload_to='pdf_book/', blank=True, null=True)
 
     def __str__(self):
         return self.title

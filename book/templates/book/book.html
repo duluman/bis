@@ -38,32 +38,69 @@
 {% endif %}
 
 <div class="container my-5">
+    <h3 style="text-align:center"> Recenzie carte </h3>
     <div class="row">
         {% for element in book_list_template %}
             <div class="col-lg-4">
 
                 <p class="my-6 font-weight-bold" style="text-align:center">{{ element.title }}</p>
-                <p style="text-align:center"> {{ element.subtitle }} </p>
+                <p style="text-align:right"> {{ element.subtitle }} </p>
+                <div class="row">
+                <div class="col-lg-6">
+                        <div class="avatar w-100 white d-flex justify-content-center align-items-center">
+                                        {% if element.picture %}
+                                      <img
+                                        src="{{ MEDIA_URL }}{{ element.picture }}"
+                                        class="img-fluid z-depth-1"
+                                        alt="element.title"
+                                      />
 
-                <p style="font-weight: bold; text-align: right;"><a href="{% url 'book:details' element.id %}" >Citeste</a></p>
-
+                                        {% endif %}
+                                    </div>
+                            </div>
+                <div class="col-lg-6">
+                <p style="font-weight: bold; text-align: center;"><a href="{% url 'book:details' element.id %}" >Citeste</a></p>
+                </div>
+</div>
             </div>
         {% endfor %}
     </div>
+    <hr>
 </div>
 
 
 <div class="container">
+    <h3 style="text-align:center"> Carti in format PDF </h3>
     <div class="row">
 {% for element in pdf_list %}
 <div class="col-lg-4">
-<h1 style="text-align:center">{{ element.title }}</h1>
-<h5>{{ element.author }}</h5>
+<p class="my-6 font-weight-bold" style="text-align:center">{{ element.title }}</p>
+<p style="text-align:right">{{ element.author }}</p>
+    <div class="row">
+    <div class="col-lg-6">
+    <div class="avatar w-100 white d-flex justify-content-center align-items-center">
+                    {% if element.picture %}
+                  <img
+                    src="{{ MEDIA_URL }}{{ element.picture }}"
+                    class="img-fluid z-depth-1"
+                    alt="element.title"
+                  />
+
+                    {% endif %}
+                </div>
+        </div>
+        <div class="col-lg-6">
+            <p style="font-weight: bold; text-align: center;">
+            <a href="{% url 'book:pdf_details' element.id %}">Citeste</a>
+            </p>
+        </div>
+
 <p>Citeste cartea: <a href="{% url 'book:pdf_details' element.id %}">{{ element.title }}</a> </p>
-</div>
+    </div></div>
 
 {% endfor %}
     </div>
+    <hr>
 </div>
 
 
