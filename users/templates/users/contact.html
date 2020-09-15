@@ -106,13 +106,23 @@
                     {{ form.message|as_crispy_field }}
 
                 </div>
+
+                <div class="row">
+
                 <!-- Grid column -->
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="gridCheck1">
-                    <label class="form-check-label" for="gridCheck1">
-                      <p> Sunt de acord ca datele mele să fie stocate în conformitate cu <a href="#">Politica de confidențialitate</a></p>
-                    </label>
+                    {{ form.gdpr|as_crispy_field }}
+                <p style="text-align: right">
+                <a href="{% url 'gdpr:ro_gdpr' %}" target="_blank"> citeste aici</a> </p>
                 </div>
+                </div>
+                <!-- Grid column -->
+<!--                <div class="form-check">-->
+<!--                    <input class="form-check-input" type="checkbox" id="gridCheck1">-->
+<!--                    <label class="form-check-label" for="gridCheck1">-->
+<!--                      <p> Sunt de acord ca datele mele să fie stocate în conformitate cu <a href="#">Politica de confidențialitate</a></p>-->
+<!--                    </label>-->
+<!--                </div>-->
               </div>
               <!-- Grid row -->
 

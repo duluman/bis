@@ -1,4 +1,5 @@
-
+{% load static %}
+{% load crispy_forms_tags %}
 
 <div class="container my-5">
 
@@ -12,16 +13,12 @@
         <h3 class="font-weight-bold my-4 pb-2">Want news?</h3>
 
         <p class="text-right small pr-2 ">Subscribe to my News Letter</p>
-        <form class="pl-2" action="" method="post" target="_blank">
-          <div class="input-danger  input-group  mb-3">
-              <span class="input-group-text rgba-white-light border-0"><i class="fa fa-envelope "></i></span>
-            <input type="email" class="form-control  border-1 z-depth-0 text-dark" placeholder="Your email" aria-label="Enter Email Address"
-              aria-describedby="button-addon2">
-            <div class="input-group-append">
-              <button class="btn btn-md btn-rounded blue white-text font-weight-bold m-0 px-3 py-2 z-depth-1" type="button">Subscribe<i class="fas fa-arrow-right pl-2"></i></button>
-            </div>
-          </div>
-        </form>
+        <form method="post" action="{% url 'users:en_newsletter' %}">
+                {% csrf_token %}
+                {{ form_news | crispy }}
+                <input type="submit" class="btn btn-primary mb-2 font-weight-bold" value="Subscribe" />
+
+            </form>
 
       </div>
     </div>

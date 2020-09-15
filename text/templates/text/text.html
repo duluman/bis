@@ -39,20 +39,25 @@
 {% endif %}
 
 <div class="container">
+    <h3 style="text-align:center"> Fisiere pdf </h3>
+    <br>
     <div class="row">
 {% for element in pdf_text %}
 <div class="col-lg-4">
-<h1>{{ element.title }}</h1>
-<h5>{{ element.author }}</h5>
+<p class="my-6 font-weight-bold" style="text-align:center">{{ element.title }}</p>
+<p>{{ element.author }}</p>
 <p>Citeste pdf: <a href="{% url 'text:details_pdf_text' element.id %}">{{ element.title }}</a> </p>
 </div>
 {% endfor %}
     </div>
+    <hr>
 </div>
 
 
 <br>
 <div class="container my-5">
+    <h3 style="text-align:center"> Articole </h3>
+    <br>
 <div class="row">
 {% for element in text_list_template %}
 <div class="col-lg-4 col-md-6 mb-2">
@@ -65,7 +70,7 @@
             <div class="mask rgba-white-slight"></div>
 
         {% endif %}
-         <h4 class="my-4 font-weight-bold" style="text-align:center">{{ element.title }}</h4>
+         <p class="my-4 font-weight-bold" style="text-align:center">{{ element.title }}</p>
         <p style="text-align:justify"> {{ element.subtitle }} </p>
 
 
@@ -82,5 +87,6 @@
 </div>
 {% endfor %}
 </div>
+    <hr>
     </div>
 {% endblock homepage %}

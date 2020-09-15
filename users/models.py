@@ -86,4 +86,8 @@ class EnContactApp(models.Model):
         return self.title
 
 
+class RoNewsletter(models.Model):
+    email = models.EmailField(unique=True, null=False, max_length=255)
 
+    def __str__(self):
+        return self.email

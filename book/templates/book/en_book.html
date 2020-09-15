@@ -38,12 +38,13 @@
 {% endif %}
 
 <div class="container my-5">
+    <h3 style="text-align:center"> Book review </h3>
     <div class="row">
         {% for element in book_list_template %}
             <div class="col-lg-4">
 
                 <p class="my-6 font-weight-bold" style="text-align:center">{{ element.title }}</p>
-                <p style="text-align:left"> {{ element.subtitle }} </p>
+                <p style="text-align:right"> {{ element.subtitle }} </p>
                 <div class="row">
 
                    <div class="col-lg-6">
@@ -70,12 +71,13 @@
 
 
 <div class="container">
+    <h3 style="text-align:center"> Books to download </h3>
     <div class="row">
 {% for element in pdf_list %}
 <div class="col-lg-4">
 <p class="my-6 font-weight-bold" style="text-align:center">{{ element.title }}</p>
-<p>{{ element.author }}</p>
-<p>You can read the book <a href="{% url 'book:en_pdf_details' element.id %}">{{ element.title }}</a> </p>
+<p style="text-align:right">{{ element.author }}</p>
+<p>You can download the book <a href="{% url 'book:en_pdf_details' element.id %}">{{ element.title }}</a> </p>
     <div class="row">
     <div class="col-lg-6">
     <div class="avatar w-100 white d-flex justify-content-center align-items-center">

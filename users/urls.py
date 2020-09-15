@@ -6,7 +6,9 @@ from users.views import (register, profile, en_profile,
                          contact_view,
                          en_contact_view,
                          change_password,
-                         en_change_password
+                         en_change_password,
+                         ro_news_letter,
+                         en_news_letter,
                          )
 
 
@@ -15,6 +17,8 @@ app_name = 'users'
 urlpatterns = [
 
     path('register/', view=register, name='register'),
+    path('ro/newsletter/', view=ro_news_letter, name='ro_newsletter'),
+    path('en/newsletter/', view=en_news_letter, name='en_newsletter'),
     path('login/', view=handle_login, name='login'),
     path('logout/', view=handle_logout, name='logout'),
     path('contact/', view=contact_view, name='contact'),

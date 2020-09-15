@@ -51,6 +51,7 @@ urlpatterns = [
     path('search/', include("search.urls")),
     path('linkedin/', include("linkedin.urls")),
     path('shop/', include("shop.urls")),
+    path('gdpr/', include("gdpr.urls")),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 

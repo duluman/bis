@@ -34,7 +34,7 @@
 
 {% endif %}
 
-
+{% include 'snippets/messages_add_snippet.html' %}
 
 <body>
  {% block homepage %}
@@ -93,6 +93,18 @@
 <!--<script async src="https://static.addtoany.com/menu/page.js"></script>-->
 <!-- AddToAny END -->
 
+<script type="text/javascript" id="cookieinfo"
+	src="//cookieinfoscript.com/js/cookieinfo.min.js"
+	data-bg="#645862"
+	data-fg="#FFFFFF"
+    data-message="Prin click pe “Da, accept!” accepți utilizarea modulelor cookie "
+	data-link="#F1D600"
+	data-cookie="CookieInfoScript"
+	data-linkmsg="Detalii"
+	data-moreinfo="https://ro.wikipedia.org/wiki/Cookie"
+	data-text-align="left"
+       data-close-text="Da, accept!">
+</script>
 
   <!-- jQuery -->
   <script type="text/javascript" src=" {% static 'style/js/jquery.min.js'%}"></script>

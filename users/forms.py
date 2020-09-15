@@ -1,6 +1,36 @@
 from django import forms
-from users.models import MyUser, Profile
+from users.models import MyUser, Profile, RoNewsletter
 from django.contrib.auth import password_validation
+
+
+class RoNewsletterForm(forms.Form):
+    email = forms.EmailField(required=True, label='Adresa ta de email')
+
+    def clean_email(self):
+        email = self.cleaned_data['email']
+        return email
+
+    def save(self):
+
+        email = self.cleaned_data['email']
+        user_email = RoNewsletter()
+        user_email.email = email
+        user_email.save()
+
+
+class EnNewsletterForm(forms.Form):
+    email = forms.EmailField(required=True, label='Your email')
+
+    def clean_email(self):
+        email = self.cleaned_data['email']
+        return email
+
+    def save(self):
+
+        email = self.cleaned_data['email']
+        user_email = RoNewsletter()
+        user_email.email = email
+        user_email.save()
 
 
 class LoginForm(forms.Form):
@@ -112,6 +142,7 @@ class ContactForm(forms.Form):
     mobile = forms.CharField(required=False, max_length=20, label='Numar de telefon')
     subject = forms.CharField(required=True, max_length=255, label='Subiect')
     message = forms.CharField(required=True, min_length=10, max_length=1000, label='Mesajul tau', widget=forms.Textarea)
+    gdpr = forms.BooleanField(required=True, label='Sunt de acord ca datele mele să fie stocate în conformitate cu Politica de confidențialitate')
 
 
 class EnContactForm(forms.Form):
@@ -121,6 +152,8 @@ class EnContactForm(forms.Form):
     mobile = forms.CharField(required=False, max_length=20)
     subject = forms.CharField(required=True, max_length=255)
     message = forms.CharField(required=True, min_length=10, max_length=1000, widget=forms.Textarea)
+    gdpr = forms.BooleanField(required=True,
+                              label='I agree with General Data Protection Regulation')
 
 
 

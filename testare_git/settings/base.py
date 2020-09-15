@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'linkedin',
     'shop',
     'a_home_page',
+    'gdpr',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
