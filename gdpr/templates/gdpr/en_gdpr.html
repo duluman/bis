@@ -1,0 +1,30 @@
+{% extends "en_homepage.html" %}
+{% load static %}
+
+{% block en_homepage %}
+
+<br><br><br>
+
+
+<div class="container">
+
+
+{% for element in en_gdpr_list %}
+
+<h3 class="my-6 font-weight-bold" style="text-align:center">{{ element.title }}</h3>
+
+<p class="font-weight-bold" style="text-align:center">{{ element.subtitle }} </p>
+    <div class="col">
+                        {% for item in body %}
+                        {% if element.id == item.heading_id %}
+
+                        <h5 class="font-weight-bold mb-3">{{ item.title }}</h5>
+                        <p  style="text-align:justify">{{ item.body }}</p>
+                         {% endif  %}
+                    {% endfor %}
+                    </div>
+
+{% endfor %}
+</div>
+
+{% endblock en_homepage %}

@@ -112,6 +112,7 @@ class ContactForm(forms.Form):
     mobile = forms.CharField(required=False, max_length=20, label='Numar de telefon')
     subject = forms.CharField(required=True, max_length=255, label='Subiect')
     message = forms.CharField(required=True, min_length=10, max_length=1000, label='Mesajul tau', widget=forms.Textarea)
+    gdpr = forms.BooleanField(required=True, label='Sunt de acord ca datele mele să fie stocate în conformitate cu Politica de confidențialitate')
 
 
 class EnContactForm(forms.Form):
@@ -121,6 +122,8 @@ class EnContactForm(forms.Form):
     mobile = forms.CharField(required=False, max_length=20)
     subject = forms.CharField(required=True, max_length=255)
     message = forms.CharField(required=True, min_length=10, max_length=1000, widget=forms.Textarea)
+    gdpr = forms.BooleanField(required=True,
+                              label='I agree with General Data Protection Regulation')
 
 
 
