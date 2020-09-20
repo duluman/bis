@@ -138,6 +138,24 @@ def register(request):
     else:
         form = MyUserCreationForm()
 
+    return render(request, 'users/en_register.html', {
+                        # 'host': current_site.domain,
+                        'form': form
+                   })
+
+
+def ro_register(request):
+    # current_site = Site.objects.get_current()
+
+    if request.method == 'POST':
+        form = MyUserCreationForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('users:login'))
+    else:
+        form = MyUserCreationForm()
+
     return render(request, 'users/register.html', {
                         # 'host': current_site.domain,
                         'form': form

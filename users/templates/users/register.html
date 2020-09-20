@@ -13,9 +13,39 @@
 
             <form method="post" action="{% url 'users:register' %}">
                 {% csrf_token %}
-                {{ form | crispy }}
+
+                 <!-- Grid row -->
+              <div class="col">
+
+
+<div >
+                  <label > Prenume  </label><br>
+
+
+                    {{ form.first_name|as_crispy_field }}
+</div>
+
+                  <div >
+                    <label> Nume  </label><br>
+
+
+
+
+
+
+                    {{ form.last_name|as_crispy_field }}
+
+                  </div>
+
+
+<div >
+ <label> Adresa de email  </label><br>
+                    {{ form.email|as_crispy_field }}
+
+</div>
+
+              </div>
                 <input type="submit" class="btn btn-primary mb-2 font-weight-bold" value="Inregistrare" />
-                <input type="submit" class="btn btn-primary mb-2 font-weight-bold" value="Register" />
             </form>
 
     </div>
@@ -29,7 +59,7 @@
     </div>
 
 
-    <!--logo SIIT-->
+
 
 
 

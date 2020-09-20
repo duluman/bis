@@ -5,8 +5,10 @@
 
 <p style="color:red">
     Link a exiprat!
+    Link expired!
 </p>
 
 <a href="{% ulr 'activation:activate' token %}?resend=true"> Trimite un nou link </a>
+<a href="{% ulr 'activation:activate' token %}?resend=true"> Send a new link </a>
 
 {% endblock homepage %}

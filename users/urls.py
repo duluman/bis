@@ -1,5 +1,5 @@
 from django.urls import path
-from users.views import (register, profile, en_profile,
+from users.views import (register, profile, en_profile, ro_register,
                          handle_login,
                          handle_logout,
                          profile_email,
@@ -16,7 +16,8 @@ app_name = 'users'
 
 urlpatterns = [
 
-    path('register/', view=register, name='register'),
+    path('register/en', view=register, name='en_register'),
+    path('register/', view=ro_register, name='register'),
     path('ro/newsletter/', view=ro_news_letter, name='ro_newsletter'),
     path('en/newsletter/', view=en_news_letter, name='en_newsletter'),
     path('login/', view=handle_login, name='login'),
