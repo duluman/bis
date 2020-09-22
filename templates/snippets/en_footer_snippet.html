@@ -13,14 +13,8 @@
         <h3 class="font-weight-bold my-4 pb-2">Want news?</h3>
 
         <p class="text-right small pr-2 ">Subscribe to my News Letter</p>
-        <form method="post" action="{% url 'users:en_newsletter' %}">
-                {% csrf_token %}
-                {{ form_news | crispy }}
-                <input type="submit" class="btn btn-primary mb-2 font-weight-bold" value="Subscribe" />
-
-            </form>
-
-      </div>
+          <a href="{% url 'users:en_newsletter' %}" class="btn btn-primary mb-2 font-weight-bold" >Subscribe</a>
+        </div>
     </div>
     <!--/.Form-->
   </div>
@@ -31,3 +25,20 @@
 </div>
 
 
+
+ <footer class="page-footer font-small pt-4 blue-color">
+
+        <!-- Footer Elements -->
+
+
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3 ">© 2020 Copyright:
+        <a href="{% url 'story:en_story' %}"> Boanca Ionut Silviu</a>
+            <p>™ All Rights Reserved | <a href="{% url 'gdpr:en_gdpr' %}">Privacy Policy</a></p>
+            <p>Made by:
+        <a href="{% url 'linkedin:cv' %}"> Duluman Cristian</a></p>
+        </div>
+
+
+
+      </footer>
