@@ -1,7 +1,7 @@
-{% extends "en_homepage.html" %}
+{% extends "homepage.html" %}
 {% load static %}
 
-{% block en_homepage %}
+{% block homepage %}
 
 
 
@@ -41,22 +41,52 @@
           <!--Grid row-->
           <div class="row">
 
-              <!--Grid column-->
+              {% if forloop.counter|divisibleby:2 %}
+            <!--Grid column-->
+            <div class="col-md-7 mb-4 mb-md-0">
+
+              <h3 class="font-weight-bold">{{ element.title }}</h3>
+
+              <p class="text-muted" style="text-align:justify">{{ element.body }}</p>
+
+            </div>
+            <!--Grid column-->
+
+            <!--Grid column-->
             <div class="col-md-5 mb-4 mb-md-0">
+
               <!--Image-->
+
                 <img src="{{ MEDIA_URL }}{{ element.picture }}" class="img-fluid"
                   alt="">
+
+            </div>
+            <!--Grid column-->
+
+              {% else %}
+              <!--Grid column-->
+            <div class="col-md-5 mb-4 mb-md-0">
+
+              <!--Image-->
+
+                <img src="{{ MEDIA_URL }}{{ element.picture }}" class="img-fluid"
+                  alt="">
+
             </div>
             <!--Grid column-->
               <!--Grid column-->
             <div class="col-md-7 mb-4 mb-md-0">
+
               <h3 class="font-weight-bold">{{ element.title }}</h3>
+
               <p class="text-muted" style="text-align:justify">{{ element.body }}</p>
+
             </div>
             <!--Grid column-->
              <br>
               <hr>
               <br>
+              {% endif %}
 
           </div>
     <br><hr><br>
@@ -95,4 +125,4 @@
 
 
 
-{% endblock en_homepage %}
+{% endblock homepage %}

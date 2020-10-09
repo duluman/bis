@@ -17,15 +17,15 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown" >
           <a class="dropdown-item" href="{% url 'story:story' %}" style="font-weight: bold">Povestea mea</a>
-          <a class="dropdown-item" href="{% url 'personal:personal' %}" style="font-weight: bold">Dezvoltare personala</a>
+            <a class="dropdown-item"   href="{% url 'direction:direction' %}" style="font-weight: bold">Directie</a>
+            <a class="dropdown-item" href="{% url 'personal:personal' %}" style="font-weight: bold">Dezvoltare personala</a>
             <a class="dropdown-item" href="{% url 'professional:professional' %}" style="font-weight: bold">Dezvoltare profesionala</a>
-          <a class="dropdown-item" href="{% url 'gratitude:gratitude' %}" style="font-weight: bold">Multumiri si recunostinta</a>
-      <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="{% url 'gratitude:gratitude' %}" style="font-weight: bold">Multumiri si recunostinta</a>
+            <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="{% url 'review:app_review' %}" style="font-weight: bold">Testimoniale</a> </div>
       </li>
-     <li class="nav-item">
-      <a class="nav-link"   href="{% url 'direction:direction' %}" style="font-weight: bold">Directie</a>
-  </li>
+
+
 
   <li class="nav-item ">
       <a class="nav-link" href="{% url 'event:event' %}"style="font-weight: bold" >Evenimente</a>

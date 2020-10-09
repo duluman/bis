@@ -1,0 +1,33 @@
+{% for element in story_list_template %}
+
+  <div class="container mt-5">
+
+    <!--Section: Content-->
+    <section class="text-justify">
+
+        <h3 class="font-weight-bold dark-grey-text mt-4"> {{ element.title }} </h3>
+
+        <p style="text-align:justify"> {{ element.body }}</p>
+
+        {% if element.picture %}
+            <figure class="figure">
+            <img src="{{ MEDIA_URL }}{{ element.picture }}" class="figure-img img-fluid z-depth-1"
+            alt="...">
+            <!--          <figcaption class="figure-caption">A caption for the above image.</figcaption>-->
+            </figure>
+        {% endif %}
+
+        {% if element.youtube %}
+            <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item"  src="https://www.youtube.com/embed/{{ element.youtube }}"  allowfullscreen>
+                </iframe>
+            </div>
+        {% endif %}
+
+              </section>
+              <!--Section: Content-->
+
+
+
+  </div>
+{% endfor %}

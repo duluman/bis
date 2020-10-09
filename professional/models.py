@@ -401,3 +401,23 @@ class EnBestFeatureCounter(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class RoProfessionalCounterPicture(models.Model):
+    title = models.CharField(max_length=255, default=None, blank=True)
+    body = models.TextField(default=None, blank=True)
+
+    picture = models.ImageField(upload_to='professional/', blank=True, null=True)
+
+    def __str__(self):
+        return self.title
+
+
+class EnProfessionalCounterPicture(models.Model):
+    title = models.CharField(max_length=255, default=None, blank=True)
+    body = models.TextField(default=None, blank=True)
+
+    picture = models.ImageField(upload_to='professional/', blank=True, null=True)
+
+    def __str__(self):
+        return self.title
