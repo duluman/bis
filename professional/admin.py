@@ -1,6 +1,6 @@
 from django.contrib import admin
-from professional.models import ProfessionalDevelopment, ProfessionalBackground, BestFeatureCounter, BestFeatureCounterTitle
-from professional.models import EnProfessionalDevelopment, EnProfessionalBackground, EnBestFeatureCounter, EnBestFeatureCounterTitle
+from professional.models import ProfessionalDevelopment, ProfessionalBackground, BestFeatureCounter, BestFeatureCounterTitle, RoProfessionalCounterPicture
+from professional.models import EnProfessionalDevelopment, EnProfessionalBackground, EnBestFeatureCounter, EnBestFeatureCounterTitle, EnProfessionalCounterPicture
 # Register your models here.
 
 
@@ -20,8 +20,7 @@ class ProfessionalDevelopmentAdmin(admin.ModelAdmin):
 
 admin.site.register(ProfessionalDevelopment, ProfessionalDevelopmentAdmin)
 admin.site.register(ProfessionalBackground)
-admin.site.register(BestFeatureCounter)
-admin.site.register(BestFeatureCounterTitle)
+admin.site.register(RoProfessionalCounterPicture)
 
 
 class EnProfessionalDevelopmentAdmin(admin.ModelAdmin):
@@ -34,5 +33,4 @@ class EnProfessionalDevelopmentAdmin(admin.ModelAdmin):
 
 admin.site.register(EnProfessionalDevelopment, EnProfessionalDevelopmentAdmin)
 admin.site.register(EnProfessionalBackground)
-admin.site.register(EnBestFeatureCounter)
-admin.site.register(EnBestFeatureCounterTitle)
+admin.site.register(EnProfessionalCounterPicture)

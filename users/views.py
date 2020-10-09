@@ -171,10 +171,13 @@ def ro_news_letter(request):
             form.save()
             messages.success(request, 'Felicitari, te-ai abonat!')
             return HttpResponseRedirect(reverse('review:app_review'))
+        # else:
+        #     messages.success(request, 'Esti deja abonat!')
+            # return HttpResponseRedirect(reverse('review:app_review'))
     else:
         form = RoNewsletterForm()
 
-    return render(request, 'snippets/footer_snippet.html', {
+    return render(request, 'snippets/footer.html', {
 
                         'form_news': form
                    })
@@ -189,10 +192,13 @@ def en_news_letter(request):
             form.save()
             messages.success(request, 'Done!')
             return HttpResponseRedirect(reverse('review:en_app_review'))
+        # else:
+        #     messages.success(request, 'Your are a subscriber!')
+        #     return HttpResponseRedirect(reverse('review:en_app_review'))
     else:
-        form = RoNewsletterForm()
+        form = EnNewsletterForm()
 
-    return render(request, 'snippets/en_footer_snippet.html', {
+    return render(request, 'snippets/en_footer.html', {
 
                         'form_news': form
                    })
