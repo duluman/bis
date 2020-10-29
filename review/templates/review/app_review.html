@@ -21,7 +21,7 @@
 
   <section class="p-md-5 mx-md-5 text-center text-lg-left">
     <div class="row">
-        {% for customer_review in review_list %}
+        {% for customer_review in review_list|dictsort:"order_nr" %}
       <div class="col-lg-6 px-3 mb-3 d-flex align-item-stretch">
         <div class="card">
           <div class="card-body m-1">

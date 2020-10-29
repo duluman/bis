@@ -14,6 +14,7 @@ class AppReview(models.Model):
     en_youtube_title = models.CharField(max_length=255, blank=True, null=True, default='Click here for the video')
     youtube_link = models.CharField(max_length=255, blank=True, null=True)
     date = models.DateTimeField(default=timezone.now)
+    order_nr = models.IntegerField(default=99, unique=False)
 
     def __str__(self):
         return str(self.name)
